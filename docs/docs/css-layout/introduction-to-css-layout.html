@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../common.css">
+    <title>introduction to css layout</title>
+</head>
+
+<body>
+    <h1>introduction to css layout</h1>
+    <section>
+        <p>CSS page layout techniques:
+            allow us to take elements contained in a web page
+            and control where they are positioned relative to their default position in normal layout flow,
+            the other elements around them, their parent container, or the main viewport/window.
+        </p>
+        <ul>
+            <li><a href="#normal-flow">normal flow</a></li>
+            <li>the display property</li>
+            <li>flexbox</li>
+            <li>grid</li>
+            <li>floats</li>
+            <li>positioning</li>
+            <li><a href="#table-layout">table layout</a></li>
+            <li>multiple-column layout</li>
+        </ul>
+    </section>
+
+    <h2 id="normal-flow">normal flow</h2>
+    <section>
+        <p>normal flow:  how the browser lays out HTML pages by default when you do nothing to control page layout</p>
+        <p>block elements, inline elements, block direction, inline direction, writting mode</p>
+        <p>well-structured HTML document</p>
+        <p>methods: the display property, floats, the position property, table layout, multi-column layout</p>
+    </section>
+
+    <h2>the display property</h2>
+    <p>display: none, block, inline, inline-block, flex, grid</p>
+
+    <h2>flexbox</h2>
+    <p>flexbox: flexible box layout 伸缩盒子布局<br>
+        flexible adj. 弹性; 灵活的；柔韧的；易弯曲的 <br>
+        lay things out in one dimension <br>
+        display: flex, to the parent element of the elements  
+    </p>
+    <pre>
+        display: flex
+            flex-direction: row
+                They are displayed in a row
+                The items all line up at the start of the container, leaving any extra space at the end of the row.
+            align-items: stretch
+                They all appear to stretch to the height of the tallest item
+                the items stretch to the height of the flex container, which in this case is defined by the tallest item.
+    </pre>
+    <p>flex property, to all of our child items <br>
+        change the way that the items flex, enabling them to expand and contract to fit into the available space <br>
+        flex vi. 弯曲；收缩 contract v. 收缩，缩短；
+    </p>
+    <pre>
+        flex: 1
+            all of the items to grow and fill the container, rather than leaving space at the end
+                If there is more space then the items will become wider
+                if there is less space they will become narrower
+                if you add another element to the markup the items will all become smaller to make space for it
+                    they will adjust size to take up the same amount of space, whatever that is.
+    </pre>
+
+    <h2>grid layout</h2>
+    <p>grid layout: lining things up in rows and columns. <br>
+    two dimensions
+    </p>
+    <pre>
+        a simple example: relying on the auto-placement behavior
+
+        display: grid  (container, parent element)
+            grid-template-row: 1fr 1fr 1fr;
+                three columns each of 1fr
+            grid-template-columns: 100px 100px;
+                two rows of 100px
+            grid-gap: 10px
+
+        no necessary properties for (child elements)
+
+
+        a example: explicitly place your items (child elements)
+            grid-column: 2 / 4; 
+            (3 cols) 分成3块，4条线
+                grid-column-start:  2;
+                    start from line 2
+                grid-column-end: 4;
+                    end from line 4
+            grid-column: 1
+                col 1
+            grid-column: 3
+                col 3
+            grid-row: 1;
+            (2 rows) 2块，3条线
+                will take up 1 row
+                row 1
+            grid-row: 2
+                row 2
+    </pre>
+
+    <h2>floats</h2>
+    <p>Floating an element changes the behavior of that element and the block level elements that follow it in normal flow. <br>
+        The element is moved to the left or right and removed from normal flow, and the surrounding content floats around the floated item. <br>
+        float:left, right, none, inherit
+    </p>
+    <pre>
+        float a div left,  
+        and give a margin on the right to push the text away from the element
+            This gives us the effect of text wrapped around that box, 
+                and is most of what you need to know about floats as used in modern web design.
+    </pre>
+
+
+    <h2>positioning techniques</h2>
+    <section>
+        <p>static(default), relative, absolute, fixed, sticky </p>
+        <ul>
+            <li>static: default, normal potion in the document layout flow</li>
+            <li>relative: relative to its position in normal flow <br>
+                including making it overlap other elements on the page
+            </li>
+            <li>absolute: completely out of the page's normal layout flow, like it is sitting on its own separate layer. <br>
+                &nbsp;&nbsp; fix it in a position relative to the edges of the page's html element  (or its nearest positioned ancestor element). <br>
+                &nbsp;&nbsp; creating complex layout effects such as tabbed adj. 选项卡式的；分页式的 boxes, where different content panels sit on top of one another and are shown and hidden as desired, <br>
+                &nbsp;&nbsp; or information panels that sit off screen by default, but can be made to slide on screen using a control button.
+            </li>
+            <li>fixed: very similar to absolute positioning, except that it fixes an element relative to the <strong> browser viewport</strong>, not another element. <br>
+                &nbsp;&nbsp;creating effects such as a persistent navigation menu that always stays in the same place on the screen as the rest of the content scrolls.
+            </li>
+            <li>sticky:  a newer positioning method which makes an element act like position: static until it hits a defined offset from the viewport, at which point it acts like position: fixed.</li>
+
+        </ul>
+    </section>
+    <h3>simple positioning example</h3>
+    <p>use width, padding, margin etc</p>
+
+    <h3>relative positioning</h3>
+    <p>allows you to offset an item from the position in normal flow <br>
+        &nbsp;&nbsp;moving an icon down a bit so it lines up with a text label <br>
+        position: relative; |  this doesn't do anything on its own <br>
+        &nbsp;&nbsp; top, left properties
+    </p>
+
+    <h3>absolute positioning</h3>
+    <p>completely remove an element from normal flow, and place it using offsets from the edges of a containing block <br>
+        &nbsp;&nbsp;container!
+    </p>
+
+    <h3>fixed positioning</h3>
+    <p>removes our element from document flow in the same way as absolute positioning <br>
+        &nbsp;&nbsp;the viewport!
+    </p>
+    <h3>sticky positioning</h3>
+    <p>It mixes the default static positioning with fixed positioning <br>
+        When an item has position: sticky it will scroll in normal flow until it hits offsets from the viewport that we have defined. At that point it becomes "stuck" as if it had position: fixed applied.
+    </p>
+
+
+    <h2 id="table-layout">table layout</h2>
+    <section>
+        <p>tabular data. inflexible, very heavy on markup, difficult to debug, and semantically wrong (e.g., screen reader users have problems navigating table layouts)</p>
+        <p>using CSS tables: The way that a table looks on a webpage when you use table markup is due to a set of CSS properties that define table layout.
+            These properties can be used to lay out elements that are not tables <br>
+            legacy method | for those situations where you have very old browsers without support for Flexbox or Grid
+        </p>
+        <pre>
+            display: table-caption | like caption el; 
+            caption-side: bottom; 
+            display: table-row; | tr
+            display: table-cell; | td
+        </pre>
+
+    </section>
+
+    <h2>multi-column layout</h2>
+    <section>
+        <p>lay out content in columns, similar to how text flows in a newspaper. <br>
+            &nbsp;&nbsp;While reading up and down columns is less useful in a web context as you don’t want to force users to scroll up and down, arranging content into columns can be a useful technique.
+        </p>
+        <pre>
+            column-count:
+                tells the browser how many columns we would like to have
+            column-width:
+                tells the browser to fill the container with as many columns of at least that width
+        </pre>
+    </section>
+
+    <h2>summary</h2>
+
+</body>
+
+</html>

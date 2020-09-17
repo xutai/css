@@ -1,0 +1,44 @@
+https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
+
+
+<section>
+    <p>A block formatting context is a part of a visual CSS rendering of a web page. It's the region in which the layout of block boxes occurs and in which floats interact with other elements.</p>
+    <p>A block formatting context is created by at least one of the following:</p>
+    <ul>
+        <li>.....</li>
+    </ul>
+    <p>Formatting contexts affect layout, but typically, we create a new block formatting context for the positioning and clearing floats rather than changing the layout, because an element that establishes a new block formatting context will:</p>
+    <ul>
+        <li>contain internal floats.</li>
+        <li>exclude external floats.</li>
+        <li>suppress margin collapsing.</li>
+    </ul>
+    <p class="warning">a Flex/Grid container(display: flex/grid/inline-flex/inline-grid) establishes a new Flex/Grid formatting context, which is similar to block formatting context except layout. There's no floating children avaliable inside a flex/grid container, but exclude external floats and suppress margin collapsing still works.</p>
+</section>
+<section>
+    <h2>Examples</h2>
+    <section>
+        <h3>Contain internal floats</h3>
+    </section>
+    <section>
+        <h3>Exclude external floats</h3>
+    </section>
+    <section>
+        <h3>Margin collapsing</h3>
+    </section>
+</section>
+
+
+
+<section>
+    <h3></h3>
+</section>
+<section>
+    <h3></h3>
+</section>
+<section>
+    <h3></h3>
+</section>
+
+
+

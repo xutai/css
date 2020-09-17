@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>responsive design</title>
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+    <header>
+        <h1>responsive design</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/index.html">index</a></li>
+        </ul>
+    </nav>
+    <main>
+        <aside>
+            <ul>
+                <li><a href="#historic-website-layouts">historic-website-layouts</a></li>
+                <li><a href="#flexible-layout-before-responsive-design">flexible-layout-before-responsive-design</a>
+                </li>
+                <li><a href="#responsive-design">responsive-design</a></li>
+                <li><a href="#media-queries">media queries</a></li>
+                <li><a href="#flexible-grids">flexible-grids</a></li>
+                <li><a href="#modern-layout-technologies">modern layout technologies</a></li>
+                <li>
+                    <ul>
+                        <li><a href="#multicol">multicol</a></li>
+                        <li><a href="#flexbox">flexbox</a></li>
+                        <li><a href="#css-grid">css grid</a></li>
+                    </ul>
+                </li>
+                <li><a href="#responsive-images">responsive-images</a></li>
+                <li><a href="#responsive-typography">responsive typography</a></li>
+                <li>
+                    <ul>
+                        <li><a href="#using-viewport-units-for-responsive-typography">using viewport units for
+                                responsive
+                                typography</a></li>
+                    </ul>
+                </li>
+                <li><a href="#the-viewport-meta-tag">the-viewport-meta-tag</a></li>
+                <li><a href="#summary">summary</a></li>
+            </ul>
+        </aside>
+        <article>
+            <section id="historic-website-layouts">
+                <h2>historic-website-layouts</h2>
+                <p>
+                    liquid site, stretch to fill the browser window <br>
+                    &nbsp;&nbsp;squashed adj. 压扁的；design on smaller screen<br>
+                    &nbsp;&nbsp;unreadably long line lengths on larger ones<br>
+                    fixed width site in pixels <br>
+                    &nbsp;&nbsp;horizontal scrollbar on screens smaller than the site width<br>
+                    &nbsp;&nbsp;lots of white space at the edges of the design on larger screens<br>
+                </p>
+            </section>
+            <section id="flexible-layout-before-responsive-design">
+                <h2>flexible-layout-before-responsive-design</h2>
+                <p>cameron adams 2004 - resolution dependent layout <br>
+                    &nbsp;&nbsp;creating a design that could adapt to different screen resolutions <br>
+                    &nbsp;&nbsp;required JavaScript to detect the screen resolution and load the correct CSS <br>
+                    Zoe Mickeley Gillenwater - formalize, medium
+                </p>
+            </section>
+            <section id="responsive-design">
+                <h2>responsive-design</h2>
+                <p>Ethan Marcotte 2010 <br>
+                    &nbsp;&nbsp;fluid grids <br>
+                    &nbsp;&nbsp;fluid images <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;max-width:100%, images would scale down smaller if their containing column
+                    became narrower than the image's intrinsic size, bue never grow larger <br>
+                    &nbsp;&nbsp;media query <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;layout switch <br>
+                    <br>
+                    responsive web design isn't a separate technology <br>
+                    it is a term used to describe an approach to web design or a set of best practices, used to create a
+                    layout that can respond to the device being used to view the content. <br>
+                    In Marcotte's original exploration this meant <strong>flexible grids (using floats) and media
+                        queries</strong>
+
+                </p>
+            </section>
+            <section id="media-queries">
+                <h2>media queries</h2>
+                <p>specification lv3 candidate recommendation 2009 <br>
+                    run a series of tests (e.g. whether the user's screen is greater than a certain width, or a certain
+                    resolution) and apply CSS selectively to style the page appropriately for the user's needs.
+                </p>
+                <p>
+                    the following media query tests to see if the current web page is being displayed as <strong>screen
+                        media</strong> (therefore not a <strong>printed document</strong> )
+                    and the viewport is at least 800 pixels wide. <br>
+                    <br>
+                    breakpoints <br>
+                    The points at which a media query is introduced, and the layout changed <br>
+                    <br>
+                    A common approach <br>
+                    <strong>mobile first</strong> design <br>
+                    &nbsp;&nbsp;create a simple single-column layout for narrow-screen devices (e.g mobile phones) <br>
+                    &nbsp;&nbsp;then check for larger screens and implement a multiple-column layout when you know that
+                    you have enough screen width to handle it.
+                </p>
+            </section>
+            <section id="flexible-grids">
+                <h2>flexible-grids</h2>
+                <p><strong>Responsive sites</strong> don't just change their layout between breakpoints, they are built
+                    on flexible grids. </p>
+                <p> <strong>A flexible grid</strong> means that you don't need to target every possible device size that
+                    there is, and build a pixel perfect layout for it. That approach would be impossible given the vast
+                    number of differently-sized devices that exist, and the fact that on desktop at least, people do not
+                    always have their browser window maximized.</p>
+                <p>By using a flexible grid, you only need to add in a breakpoint and change the design <strong>at the
+                        point where the content starts to look bad</strong>.
+                    For example, if the line lengths become unreadably long as the screen size increases, or a box
+                    becomes squashed with two words on each line as it narrows.
+                </p>
+                <p><strong>legacy method</strong>. flexible floated layouts. percentage width, 100%. fluid grids.
+                <pre>target / content = result</pre>
+                <pre>width: 6.25% /* 60px / 960px = 0.625 */</pre>
+                </p>
+            </section>
+            <section id="modern-layout-technologies">
+                <h2>modern layout technologies</h2>
+                <section id="multicol">
+                    <h3>multicol</h3>
+                    <p> column-count:
+                        how many columns you want your content to be split into
+                        The browser then works out the size of these, a size that will change according to the screen
+                        size.</p>
+                    <p>column-width: a minimum width. The browser will create as many columns of that width as will
+                        comfortably fit into the container, then share out the remaining space between all the columns.
+                        Therefore the number of columns will change according to how much space there is.</p>
+                </section>
+                <section id="flexbox">
+                    <h3>flexbox</h3>
+                    <p>In Flexbox, flex items will shrink and distribute space between the items according to the space
+                        in their container, as their initial behavior.By changing the values for flex-grow and
+                        flex-shrink you can indicate how you want the items to behave when they encounter more or less
+                        space around them. </p>
+
+                </section>
+                <section id="css-grid">
+                    <h3>css grid</h3>
+                    <p>the fr unit allows the distribution of available space across grid tracks. </p>
+                </section>
+            </section>
+            <section id="responsive-images">
+                <h2>responsive-images</h2>
+                <p>the simplest approach: max-width: 100%;</p>
+                <p>1.The image might be displayed a lot smaller than its intrinsic size, which is a waste of bandwidth —
+                    a mobile user may be downloading an image several times the size of what they actually see in the
+                    browser window. </p>
+                <p>2.you may not want the same image aspect ratio on mobile as on desktop. better a square image for
+                    mobile, a landscape image on desktop </p>
+                <p>&lt;picture&gt;, &lt;img&gt; srcset and sizes attributes solve both of these problems</p>
+                <p>You can provide multiple sizes along with "hints"
+                    <strong>(meta data that describes the screen size and resolution the image is best suited
+                        for)</strong> ,
+                    and the browser will choose the most appropriate image for each device,
+                    ensuring that a user will download an image size appropriate for the device they are using.</p>
+                <p>You can also <strong>art direct</strong> images used at different sizes, thus providing a different
+                    crop or completely
+                    different image to different screen sizes.</p>
+            </section>
+            <section id="responsive-typography">
+                <h2>responsive typography</h2>
+                <section id="using-viewport-units-for-responsive-typography">
+                    <h3>using viewport units for responsive typography</h3>
+                    <p>vw: viewport unit, 1vw = 1% viewport width</p>
+                    <p>user loses the ability to zoom any text set using the vw unit, as that text is always related to
+                        the size of the viewport</p>
+                    <p><strong>Therefore you should never set text using viewport units alone.</strong></p>
+                    <p>There is a solution, and it involves using calc(). If you add the vw unit to a value set using a
+                        fixed size such as ems or rems then the text will still be zoomable. Essentially, the vw unit
+                        adds on top of that zoomed value:</p>
+                    <p>calc(1.5rem + 3vw)</p>
+                    <p><strong>This means that we only need to specify the font size for the heading once</strong>,
+                        rather than set it up for mobile and redefine it in the media queries. The font then gradually
+                        increases as you increase the size of the viewport.</p>
+                </section>
+            </section>
+            <section id="the-viewport-meta-tag">
+                <h2>the-viewport-meta-tag</h2>
+                <p>&lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;</p>
+                <p>This meta tag tells <strong>mobile browsers</strong> that they should set the <strong>width</strong>
+                    of <strong>the viewport</strong> to the <strong>device width</strong>,
+                    and <strong>scale the document to 100% of its intended size</strong>, which shows the document at
+                    the mobile-optimized size that you intended.</p>
+                    <p>Why is this needed? Because <strong> mobile browsers tend to lie about their viewport width</strong>.</p>
+                    <p>history: blah blah blah. check mlbb forum </p>
+                    <p>the trouble: blah blah blah,</p>
+                    <dl>
+                        <dt>initial-scale</dt>
+                        <dd>Sets the initial zoom of the page, which we set to 1.</dd>
+                        <dt>height</dt>
+                        <dd>sets a specific height for the viewport</dd>
+                        <dt>minimum-scale</dt>
+                        <dd>set the minimum zoom level</dd>
+                        <dt>maximum-scale</dt>
+                        <dd>set the maximum zoom level</dd>
+                        <dt>user-scalable</dt>
+                        <dd>prevents zooming if set to "no"</dd>
+                    </dl>
+                    <p>@viewport poor browser support</p>
+            </section>
+            <section id="summary">
+                <h2>summary</h2>
+                <p>Responsive design refers to a site or application design that responds to the environment in which it is viewed. It encompasses a number of CSS and HTML features and techniques and is now essentially just how we build websites by default.</p>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <p>@copyright</p>
+        <p>xutai</p>
+        <p>last edit: Friday, June 19, 2020</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <style>
+        .active {
+            width: 100px;
+            height: 50px;
+            background-color: yellow;
+            transition: width 0.5s ease;
+        }
+    </style>
+    <script src="../../../tools/Vue/vue.js_v2.5.16.js"></script>
+</head>
+<body>
+
+
+
+<div id="demo">
+    <div @mouseover="mouseOver" @mouseout="mouseOut">
+        v-on:mouseover="mouseOver"
+    </div>
+
+        <div v-bind:class=" {active : isActive }" >
+
+        </div>
+</div>
+
+<script>
+    var demo = new Vue({
+        el: '#demo',
+        data: {
+            isActive: false
+        },
+        methods: {
+            mouseOver: function () {
+                console.log('mouseover');
+                this.isActive = true;
+            },
+            mouseOut: function () {
+                console.log('mouseout');
+                this.isActive = false
+            },
+        }
+    })
+</script>
+
+
+</body>
+
+
+</html>

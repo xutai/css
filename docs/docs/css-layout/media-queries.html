@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>media queries</title>
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>media queries</h1>
+            <nav id="menu">
+                <ul>
+                    <li><a href="#media-query-basics">media-query-basics</a></li>
+                    <li>
+                        <ul>
+                            <li><a href="#media-types">media types</a></li>
+                            <li><a href="#media-feature-rules">media-feature-rules</a></li>
+                            <li>
+                                <ul>
+                                    <li><a href="#width-and-height">width-and-height</a></li>
+                                    <li><a href="#orientation">orientation</a></li>
+                                    <li><a href="#use-of-pointing-devices">use-of-pointing-devices</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#more-complex-media-queries">more-complex-media-queries</a></li>
+                    <li>
+                        <ul>
+                            <li><a href="#and-logic-in-media-queries">and-logic-in-media-queries</a></li>
+                            <li><a href="#or-logic-in-media-queries">or-logic-in-media-queries</a></li>
+                            <li><a href="#not-logic-in-media-queries">not-logic-in-media-queries</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#how-to-choose-breakpoints">how-to-choose-breakpoints</a></li>
+                    <li><a
+                            href="#active-learning-mobile-first-responsive-design">active-learning-mobile-first-responsive-design</a>
+                    </li>
+                    <li>
+                        <ul>
+                            <li><a
+                                    href="#walkthrough-a-simple-mobile-first-layout">walkthrough-a-simple-mobile-first-layout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#do-you-really-need-a-media-query">do-you-really-need-a-media-query</a></li>
+                    <li><a href="#test-your-skills">test-your-skills</a></li>
+                    <li><a href="#summary">summary</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <article>
+                <div class="content">
+                    <p>The CSS Media Query gives you a way to apply CSS only when the browser and device environment matches
+                        a rule that you specify</p>
+                    <section id="media-query-basics">
+                        <h2>media-query-basics</h2>
+                        <code>
+                        @media media-type and (media-feature-rule) {
+                            /* css rules go here */
+                        }
+                    </code>
+                        <dl>
+                            <dt>a media type</dt>
+                            <dd>which tells the browser what kind of media this code is for (e.g. print, or screen).</dd>
+                            <dt>a media expressions</dt>
+                            <dd>which is a rule, or test that must be passed for the contained CSS to be applied.</dd>
+                            <dt>a set of CSS rules</dt>
+                            <dd>will be applied if the test passes and the media type is correct.</dd>
+                        </dl>
+                        <section id="media-types">
+                            <h2>media-types</h2>
+                            <dl>
+                                <dt>all</dt>
+                                <dd>all media types (default)</dd>
+                                <dl>print</dl>
+                                <dd>if the page is printed</dd>
+                                <dl>screen</dl>
+                                <dd></dd>
+                                <dl>speech</dl>
+                                <dd></dd>
+                            </dl>
+                            <p>media type vs MIME type</p>
+                        </section>
+                        <section id="media-feature-rules">
+                            <h2>media feature rules</h2>
+                            <section id="width-and-height">
+                                <h3>width-and-height</h3>
+                                <dl>
+                                    <dt>min-width</dt>
+                                    <dd></dd>
+                                    <dt>max-width</dt>
+                                    <dd>if the viewport is narrower than this max-width pixels</dd>
+                                    <dt>width</dt>
+                                    <dd></dd>
+                                </dl>
+                            </section>
+                            <section id="orientation">
+                                <h3>orientation</h3>
+                                <dl>
+                                    <dt>landscape</dt>
+                                    <dd></dd>
+                                    <dt>portrait</dt>
+                                    <dd></dd>
+                                </dl>
+                            </section>
+                            <section id="use-of-pointing-devices">
+                                <h2>use-of-pointing-devices</h2>
+                                <code>hover:</code>
+                                <p>lv4 spec; if the user has the ability to hover over an element, which essentially means
+                                    they are using some kind of pointing device; touchscreen and keyboard navigation does
+                                    not hover.</p>
+                                <dl>
+                                    <dt>hover</dt>
+                                    <dd>hover: hover</dd>
+                                </dl>
+                                <code>pointer: </code>
+                                <dl>
+                                    <dt>none</dt>
+                                    <dd>the user has no pointing device. perhaps they are navigating with the keyboard only
+                                        or with voice commands.</dd>
+                                    <dt>fine</dt>
+                                    <dd>adj. 细小的; a mouse or trackpad. It enables the user to precisely target a small area.
+                                    </dd>
+                                    <dt>coarse</dt>
+                                    <dd>adj. 粗. your finger on a touchscreen</dd>
+                                </dl>
+                            </section>
+                            <section id="more-complex-media-queries">
+                                <h2>more-complex-media-queries</h2>
+                                <section id="and-logic-in-media-queries">
+                                    <h3>and-logic-in-media-queries</h3>
+                                    <p>@media screen and (min-width: 400px) and (orientation: landscape)</p>
+                                    <p>min-width: including the width, equal to this min-width && greater than this
+                                        min-width</p>
+                                </section>
+                                <section id="or-logic-in-media-queries">
+                                    <h3>or-logic-in-media-queries</h3>
+                                    <p> a set of queries, any of which could match, then you can comma separate these
+                                        queries</p>
+                                    <p>@media screen and (min-width: 400px), screen and (orientation: landccape)</p>
+                                </section>
+                                <section id="not-logic-in-media-queries">
+                                    <h3>not-logic-in-media-queries</h3>
+                                    <p>negate an entire media query by using the not operator. This reverses the meaning of
+                                        the entire media query. </p>
+                                    <p>@media not all and (orientation: landscape)</p>
+                                    <p>?all?? possible cases: 1. not all and not landscape; 2. all, but not landscape</p>
+                                </section>
+                            </section>
+                            <section id="how-to-choose-breakpoints">
+                                <h2>how-to-choose-breakpoints</h2>
+                                <p>beakpoints: a better approach is to change the design at the size where the content
+                                    starts to break in some way</p>
+                            </section>
+                            <section id="active-learning-mobile-first-responsive-design">
+                                <h2>active-learning-mobile-first-responsive-design</h2>
+                                <p>mobile first responsive design</p>
+                                <p>From this point, start to drag the Responsive Design Mode view wider until you can see that the line lengths are becoming quite long, and we have space for the navigation to display in a horizontal line.</p>
+                                <p>This is where we'll add our first media query. </p>
+                                <p>use ems, as this will mean that if the user has increased their text size, the breakpoint will happen at a similar line-length but wider viewport, than someone with a smaller text size.</p>
+                                <p>two-column layout inside the article, of the article content and related information in the aside element. We have also used flexbox to put the navigation into a row.</p>
+                                <p>Lets continue to expand the width until we feel there is enough room for the sidebar to also form a new column. </p>
+                            </section>
+                            <section id="do-you-really-need-a-media-query">
+                                <h2>do-you-really-need-a-media-query</h2>
+                                <p>200px card example, usign grid layout</p>
+                                <p>The nice thing about this method is that grid is not looking at the viewport width, but the width it has available for this component. </p>
+                            </section>
+                            <section id="test-your-skills">
+                                <h2>test-your-skills</h2>
+                            </section>
+                            <section id="summary">
+                                <h2>summary</h2>
+                                <p>perhaps you could change the size of the navigation if you detect that the visitor has a coarse pointer, using the pointer media feature.</p>
+                                <p>experiment with adding different components and seeing whether the addition of a media query, or using a layout method like flexbox or grid is the most appropriate way to make the components responsive</p>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="related">
+                    <p>related.....</p>
+                </aside>
+            </article>
+
+            <aside  class="sidebar">
+                <ul>
+                    <li><a href="/index.html">index</a></li>
+                    <li> <a href="#menu"><img src="../images/image.jpg" alt="image" class="image-fixed-positioned"></a>
+                    </li>
+                </ul>
+            </aside>
+        </main>
+        <footer>
+            <p>&copy;2020 xutai</p>
+            <p>last edit: Friday, June 19, 2020</p>
+        </footer>
+    </div>
+</body>
+
+</html>

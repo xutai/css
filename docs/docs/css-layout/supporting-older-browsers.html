@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>support older browsers</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>support older browser</h1>
+            <nav>
+                <ul>
+                    <li><a
+                            href="#what-is-the-browser-landscape-for-your-site">what-is-the-browser-landscape-for-your-site</a>
+                    </li>
+                    <li><a
+                            href="#what-is-the-support-for-the-features-you-want-to-use">what-is-the-support-for-the-features-you-want-to-use</a>
+                    </li>
+                    <li><a href="#support-doesnt-mean-looks-the-same">support-doesnt-mean-looks-the-same</a></li>
+                    <li><a href="#creating-fallbacks-in-css">creating-fallbacks-in-css</a></li>
+                    <li>
+                        <ul>
+                            <li><a href="#fallback-methods">fallback-methods</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#feature-queries">feature-queries</a></li>
+                    <li><a href="#older-versions-of-firebox">older-versions-of-firebox</a></li>
+                    <li><a href="#the-ie10-and-11-prefixed-version-of-grid">the-ie10-and-11-prefixed-version-of-grid</a>
+                    </li>
+                    <li><a href="#testing-older-browsers">testing-older-browsers</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <article>
+                <div class="content">
+                    <section id="what-is-the-browser-landscape-for-your-site">
+                        <h2>what-is-the-browser-landscape-for-your-site</h2>
+                        <p><a href="https://gs.statcounter.com/">Statcounter</a> that can provide statistics filtered by
+                            location</p>
+                        <p>older browser and accessibility</p>
+                    </section>
+                    <section id="what-is-the-support-for-the-features-you-want-to-use">
+                        <h2>what-is-the-support-for-the-features-you-want-to-use</h2>
+                        <p>browser compatibility on each page</p>
+                        <p><a href="https://caniuse.com/">Can I Use</a> website</p>
+                    </section>
+                    <section id="support-doesnt-mean-looks-the-same">
+                        <h2>support-doesnt-mean-looks-the-same</h2>
+                        <p>A basic level of support comes from structuring your content well so that the normal flow of
+                            your page makes sense.</p>
+                        <p>a well-structured HTML document should always be your starting point</p>
+                    </section>
+                    <section id="creating-fallbacks-in-css">
+                        <h2>creating-fallbacks-in-css</h2>
+                        <p>CSS specifications contain information that explains what the browser does when two layout
+                            methods are applied to the same item.</p>
+                        <p> browsers ignore CSS that they don’t understand</p>
+                        <p> The clear property also has no effect once the cleared item becomes a grid item, so you
+                            could have a layout with a cleared footer, which is then turned into a Grid Layout.</p>
+                        <section id="fallback-methods">
+                            <h3>fallback-methods</h3>
+                            <dl>
+                                <dt>float and clear</dt>
+                                <dd> the float and clear properties cease to affect the layout if floated or cleared items become flex or grid items.</dd>
+                                <dt>display: inline-block</dt>
+                                <dd>This method can be used to create column layouts, if an item has display: inline-block set but then becomes a flex or grid item, the inline-block behaviour is ignored.</dd>
+                                <dt>display: table</dt>
+                                <dd> Items that have CSS table layouts set on them will lose this behaviour if they become flex or grid items. Importantly, the <strong>anonymous boxes created to fix up the table structure are not created</strong>???.</dd>
+                                <dt>multiple-column layout</dt>
+                                <dd> if your container has any of the column-* properties defined on it and then becomes a grid container, the multicol behaviour will not happen.</dd>
+                                <dt>flexbox as a fallback for grid</dt>
+                                <dd>Flexbox has greater browser support than Grid due to being supported by IE10 and 11, although do check out the information later in this lesson explaining the rather patchy and confusing support for Flexbox in older browsers. If you make a flex container into a grid container, any flex property applied to the children will be ignored.</dd>
+                            </dl>
+                            <p>To deal with this issue we need to have a way to detect if Grid is supported and therefore if it will override the width. CSS has a solution for us here.</p>
+                        </section>
+                    </section>
+                    <section id="feature-queries">
+                        <h2>feature-queries</h2>
+                        <p>Feature queries allow you to test whether a browser supports any particular CSS feature. </p>
+                        <p>This means that you can write some CSS for browsers that don’t support a certain feature, then check to see if the browser has support and if so throw in your fancy layout.</p>
+                        <p>you should note that it is the browsers that do not support CSS Grid, which also doesn’t support feature queries. </p>
+                        <p>What we are doing is writing our old CSS first, outside of any feature query. </p>
+                    </section>
+                    <section id="older-versions-of-firebox">
+                        <h2>older-versions-of-firebox</h2>
+                        <p>this is mostly an issue with Internet Explorer 10, which uses the -ms-  prefix for Flexbox. </p>
+                    </section>
+                    <section id="the-ie10-and-11-prefixed-version-of-grid">
+                        <h2>the-ie10-and-11-prefixed-version-of-grid</h2>
+                        <p>The CSS Grid specification was initially prototyped In Internet Explorer 10; this means that while IE10 and IE11 do not have modern grid support, they do have a version of Grid layout that is very usable, although different to the modern specification documented on this site.</p>
+                        <p>The IE10 and 11 implementations is  -ms- prefixed, which means you can use it for these browsers and it will be ignored by non-Microsoft browsers. </p>
+                        <p> Edge does still understand the old syntax, however, so take care that everything is safely overwritten in your modern grid CSS.</p>
+                        <p>However, unless you have a very high number of visitors in older IE versions, you may find it better to focus on creating a fallback that works for all non-supporting browsers.</p>
+                    </section>
+                    <section id="testing-older-browsers">
+                        <h2>testing-older-browsers</h2>
+                        <p> online testing tool such as Sauce Labs</p>
+                        <p>vertual machines</p>
+                    </section>
+                </div>
+                <aside class="extra">
+                    <p>?</p>
+                </aside>
+            </article>
+            <aside class="sidebar"></aside>
+        </main>
+        <footer>
+            <p>&copy;2020</p>
+        </footer>
+    </div>
+</body>
+
+</html>

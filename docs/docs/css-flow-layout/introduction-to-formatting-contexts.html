@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction to formatting contexts</title>
+    <meta name="author" content="xutai">
+    <meta name="description" content="The homepage aims to provide complete author's personal projects and knowledge">
+    <base href="" target="_blank">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <!-- <link rel="preload" href="/styles/normalize.css" as="style"> -->
+    <link rel="stylesheet" href="/styles/normalize.css">
+    <!-- <link rel="preload" href="/styles/common.css" as="style"> -->
+    <link rel="stylesheet" href="/styles/common.css">
+    
+    
+    <script src="/scripts/imageChanger.js" defer></script>
+    
+    
+    
+    <!--[if lte IE 8]>
+        <script src="js/browser_support/ie-fix.js"></script>
+        <link href="css/browser_support" rel="stylesheet" type="text/css">
+    <![endif]-->
+    
+    
+    
+
+    <!-- <link rel="preload" href="js/dom/change_style.js" as="script"> -->
+    <!-- <script src="js/dom/change_style.js" defer></script> -->
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="header">Introduction to formatting contexts</h1>
+
+            <form class="userinfo header" role="search">
+                <input type="text" id="loginInput" name="login">
+                <p>
+                    <span class="username"></span>
+                    <span><a href="" class="logout" style="display: none;">logout</a></span>
+                    <span><a href="/login" class="login">login</a></span>
+                    <span><a href="/register" class="register">register</a></span>
+                </p>
+
+            </form>
+
+
+            <nav class="header">
+                <ul>
+                    <li><a href="/">home</a></li>
+                    <li><a href="/pages/web-development/job/index.html">job</a></li>
+                    <li><a href="/pages/life/index.html">life</a></li>
+                    <li><a href="/pages/gaming/index.html">gaming</a></li>
+                </ul>
+            </nav>
+
+            <img src="/resources/images/cover_31.jpg" alt="cover_lanscape" class="image_cover header">
+        </header>
+        <main>
+            <article role="article">
+                <div class="content">
+
+                    <nav>
+                        <p>docs</p>
+                        <ul>
+                            <li><a href="/docs/docs/css-building-blocks/index.html">css-building-blocks</a></li>
+                            <li><a href="/docs/docs/styling-text/index.html">styling-text</a></li>
+                            <li><a href="/docs/docs/css-layout/index.html">css-layout</a></li>
+                            <li><a href="/docs/docs/css-flow-layout/index.html">css-flow-layout</a></li>
+                        </ul>
+                        <p>others</p>
+                        <ul>
+                            <li><a href="cascade-inheritance.html">cascade inheritance importance</a></li>
+                            <li><a href="rulesets.html">rulesets</a></li>
+                            <li><a href="note.html">note</a></li>
+                            <li><a href="summary.html">summary</a></li>
+
+                        </ul>
+                        <p>this folder</p>
+                        <ul>
+                            <li><a
+                                    href="/docs/docs/css-flow-layout/block-and-inline-layout-in-normal-flow.html">block-and-inline-layout-in-normal-flow</a>
+                            </li>
+                            <li><a
+                                    href="/docs/docs/guide/block-formatting-context.html">block-formatting-context</a>
+                            </li>
+
+                            <li><a
+                                    href="/docs/docs/css-flow-layout/flow-layout-and-overview.html">flow-layout-and-overview</a>
+                            </li>
+                            <li><a
+                                    href="/docs/docs/css-flow-layout/flow-layout-and-writing-modes.html">flow-layout-and-writing-modes</a>
+                            </li>
+                            <li><a
+                                    href="/docs/docs/css-flow-layout/in-flow-and-out-of-flow.html">in-flow-and-out-of-flow</a>
+                            </li>
+                            <li><a
+                                href="/docs/docs/css-flow-layout/introduction-to-formatting-contexts.html">introduction-to-formatting-contexts</a>
+                        </li>
+                        </ul>
+
+                    </nav>
+
+
+                    <section>
+                        <ul>
+                            <li>block formatting contexts</li>
+                            <li>inline formatting contexts</li>
+                            <li>flex formatting contexts</li>
+                        </ul>
+                        <p>formatting context: Everything on a page is part of a formatting context, or an area which has been defined to lay out content in a particular way.</p>
+                        <p>block formatting context: A block formatting context (BFC) will lay child elements out according to block layout rules,</p>
+                        <p>flex formatting context: flex formatting context will lay its children out as flex items</p>
+                    </section>
+                    <section>
+                        <h2>Block formatting contexts</h2>
+                        <p>initial block formatting context: The outermost element in a document that uses block layout rules establishes the first, or initial block formatting context.</p>
+                        <section>
+                            <h3>Creating a new block formatting context</h3>
+                            <p>A new BFC is created in the following situations:</p>
+                            <ul>
+                                <li>...</li>
+                                <li>...</li>
+                            </ul>
+                            <p>This is useful because a new BFC will behave much like the outermost document in that it becomes a mini-layout inside the main layout. </p>
+                            <p>A BFC contains everything inside it, float and clear only apply to items inside the same formatting context, and margins only collapse between elements in the same formatting context.</p>
+                        </section>
+                        <section>
+                            <h3>BFC creation examples</h3>
+                            <p class="note">key point</p>
+                            <p>so the background and border of the div only contain the content and not the float.</p>
+                            <p>Creating a new BFC would contain the float. A typical way to do this in the past has been to set overflow: auto or set other values than the initial value of overflow: visible.</p>
+                            <hr>
+                            <p>problem</p>
+                            <p>some occasions, unwanted scrollbars or clipped shadows </p>
+                        </section>
+                        <section>
+                            <h3>Explicitly creating a BFC using display: flow-root</h3>
+                            <p>Using display: flow-root (or display: flow-root list-item) on the containing block will create a new BFC without any other potentially problematic side-effects.</p>
+                            <p>flow-root: like root element html</p>
+                        </section>
+                    </section>
+                    <section>
+                        <h2>Inline formatting contexts</h2>
+                        <p>Inline formatting contexts exist inside other formatting contexts and can be thought of as the context of a paragraph</p>
+                        <hr>
+                        <p>In a horizontal writing mode line, horizontal padding, borders and margin will be applied to the element and push the text away left and right. </p>
+                        <p> However, margins above and below the element will not be applied. Vertical padding and borders will be applied but may  overlap content above and below as, in the inline formatting context, the line boxes will not be pushed apart by padding and borders.</p>
+                    </section>
+                    <section>
+                        <h2>Other formatting contexts</h2>
+                    </section>
+                    <section>
+                        <h2></h2>
+                    </section>
+                    <section>
+                        <h2></h2>
+                    </section>
+                    <section>
+                        <h3></h3>
+                    </section>
+                    <section>
+                        <h4></h4>
+                    </section>
+
+                </div>
+                <aside class="extra">
+                    <nav>
+                        <ul>
+                            <li><a href="/pages/mobile/index.html">mobile</a></li>
+                            <li><a href="/pages/experiment.html">experiment</a></li>
+                            <li><a href="/pages/video.html">video</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+            </article>
+            <aside class="sidebar" role="complementary">
+                <nav>
+                    <ul>
+                        <li><a href="/pages/web-development/http/index.html">http</a></li>
+                        <li><a href="/pages/web-development/nodejs/index.html">nodejs</a></li>
+                        <li><a href="/pages/web-development/html/index.html">html</a></li>
+                        <li><a href="/docs/index.html">css</a></li>
+                        <li><a href="/pages/web-development/web/index.html">web</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </main>
+        <footer>
+            <div class="count">
+                <p class="visit_count"></p>
+                <p class="click_count"></p>
+                <p class="visit_individual_count"></p>
+            </div>
+            <p>&copy;2020 xutai</p>
+            <p><a href="mailto:2518128561@qq.com">contact me</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

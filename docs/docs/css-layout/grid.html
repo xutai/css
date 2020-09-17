@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>grids</title>
+    <link rel="stylesheet" href="../common.css">
+</head>
+
+<body>
+    <h1>grids</h1>
+    <p>two-dimensional 二维 layout system for the web <br>
+        It lets you lay content out in rows and columns, and has many features that make building complex layouts
+        straightforward. </p>
+
+
+    <h2>what is grid layout?</h2>
+    <p>A grid: is a collection of horizontal and vertical lines creating a pattern against 依靠 which we can line up our design elements</p>
+    <pre>
+        gutter 槽
+    </pre>
+
+
+
+    <h2>creating your grid in css</h2>
+
+    <h3>defining a grid</h3>
+    <pre>
+        display: grid; (container)
+            gives you a one column grid
+                so your items will continue to display one below the other as they do in normal flow.
+        grid-template-coloumns: 200px 200px 200px;   (container)
+            3 columns
+
+    </pre>
+
+    <h3>flexible grids with fr unit</h3>
+    <pre>
+        grid-template-columns: 1fr 1fr 1fr
+            fr fraction 部分
+            fr: represents one fraction of the <strong>available space</strong> in the grid container.
+                vs lengths, percentage
+            The fr unit distributes space in proportion 比例,
+                grid-template-columns: 1fr 1fr 1fr
+
+            <strong>available space not all space</strong>
+                Therefore if one of your tracks has something large inside it 
+                there will be less free space to share out.
+    </pre>
+
+    <h3>gaps between tracks</h3>
+    <pre>
+        grid-column-gap (container)
+        grid-row-gap (container)
+
+        grid-gap: alias,
+            the intention is to make them usable in multiple layout methods
+            will be safe to use for some time
+        gap
+
+        grid-gap followedby gap
+            To be on the safe side
+    </pre>
+
+    <h3>repeating track listings</h3>
+    <pre>
+        grid-template-columns: repeat(3, 1fr)
+            3 1fr tracks
+            how many times you want the listing to repeat | a track listing, which may be one or more tracks that you want to repeat
+    </pre>
+
+    <h3>the implicit and explicit grid</h3>
+    <pre>
+        explicit
+            grid-template-columns or
+            grid-template-rows
+        implicit
+            when content is placed outside of that grid 
+                such as into our rows
+
+        The explicit and implicit grids are analogous to the main and cross flexbox axes.
+        
+            By default, tracks created in the implicit grid are auto sized
+                which in general means that they are large enough to fit their content
+
+            If you wish to give implicit grid tracks a size you can use the 
+                grid-auto-rows and 
+                    If you add grid-auto-rows with a value of 100px to your CSS, 
+                    you will see that those created rows are now 100 pixels tall.
+                grid-auto-columns properties.
+    </pre>
+
+    <h3>the minmax() function</h3>
+    <pre>
+        grid-auto-rows: 100px;
+            won’t be very useful if we add content into those tracks that is taller than 100 pixels, in which case it would cause an overflow
+
+        -> change to 
+
+        grid-auto-rows: minmax(100px, auto)
+            at least 100 pixels tall and can still expand if more content gets into them
+
+            A fairly basic fact about the web is that you never really know how tall something is going to be
+                additional content or larger font sizes can cause problems with designs that attempt to be pixel perfect in every dimension.
+
+        
+    </pre>
+
+    <h3>as many columns as will fit</h3>
+    <pre>
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    </pre>
+
+
+
+    <h2>line-based placement</h2>
+    <pre>
+        grid-column
+            grid-coloum-start
+            grid-column-end
+        grid-row
+            grid-row-start
+            grid-row-end
+        /, 
+
+
+        -1 end column end row, for explicit grid not implicit grid
+    </pre>
+
+    
+    <h2>positioning with grid-template-areas</h2>
+    <pre>
+        grid-template-areas: {
+
+            "header header"
+            "sidebar content"
+            "footer footer"
+        }
+        header {
+            grid-area: header
+        }
+        etc...
+
+
+        rules:
+            every cell filled
+            span cross just repeat name
+            !To leave a cell empty, use a . (period).
+            rectangular  矩形的
+            !Areas can't be repeated in different locations.
+    </pre>
+
+
+    <h2>a css grid, grid framework</h2>
+    <pre>
+        Grid "frameworks" tend to be based around 12 or 16 column grids
+        line-based placement
+    </pre>
+
+
+    <h2>test your skills</h2>
+
+
+    <h2>summary</h2>
+
+
+
+</body>
+
+</html>

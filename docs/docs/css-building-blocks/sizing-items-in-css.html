@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>sizing items in css</title>
+    </head>
+    <body>
+        <h1>sizing items in css</h1>
+        <h2>the natural or intrinsic size of things</h2>
+        <pre>
+            intrinsic adj. 本质的，固有的
+
+            intrinsic size won't be affected by css
+
+            empty div no size
+            content in div, then div has intrinsic size which is defined by the content
+        </pre>
+        <h2>setting a specific size</h2>
+        <pre>
+            extrinsic size
+
+            extrinsic adj. 外在的；外来的；非固有的
+            change size by setting  attribute width-height or  css? 
+            content need to fit into taht size
+        </pre>
+        <pre> 
+            using percentages
+
+            !easy to understand, i've grasphed?
+            !now i know it's important
+
+            When using a percentage you need to be aware what it is a percentage of
+            ex. a percentage of the width of the parent container
+        </pre>
+        <pre>
+            percentage margins and padding
+
+            !i should review this soon
+            !this concept is confusing but important, i must grasp it
+
+            you might expect for example the percentage top and bottom margins to be a percentage of the element's height, 
+            and the percentage left and right margins to be a percentage of the element's width. 
+            However, this is not the case!
+            i remake on it: using margin or padding with percentage -  element's width or height (x) won't work!
+
+            we assume:
+            border-box
+            height: (content height), margin, padding 10%  = 
+            width: 300px, margin, padding 10%  = 300 * 10% = 30px
+            actual: 
+            height 175px; top bottom padding, margin 40px;  border 5px
+            line-height 28.8px, 3 lines, so 28.8 * 3 = 86.6px
+            height 86 + 40 * 2 + 5 * 2 = 176
+            wrong! 176 * 10% = 17.6
+
+            When you use margin and padding set in percentages, 
+            the value is calculated from the inline size
+            inline size!!!
+
+            width 
+            border box: width = content width + padding width + border width
+            wrong! padding 300 * 10% = 30
+
+            !note, the percentage is relate to the element's parent width
+            parent's width  421, parent's content width 395
+            element's left right padding and margin  395 * 10% = 39.5 
+            top bottom will do the same
+
+        </pre>
+        <h2>
+            min- and max- sizes
+        </h2>
+        <pre>
+            min-height  minimum height then grow
+
+            variable amounts of content while avoiding overflow
+
+            max-width 
+            cause images to scale down if there is not enough space to display them at their intrinsic width 
+            while making sure they don't become larger than that width.
+
+            width 100% vs max-width 100%
+                if image intrinsic width smaller than container width, 
+                stretch (pixellated)| not stretch
+                if larger
+                stretch | stretch
+
+                This technique is used to make images responsive, so that when viewed on a smaller device they scale down appropriately. 
+                You should however not use this technique to load in really large images and then scale them down in the browser.
+                Images should be appropriately sized to be no larger than they need to be for the largest size they are displayed in the design.
+                Downloading overly large images will cause your site to become slow, and it can cost users more money if they are on a metered connection.
+                i remark on it: 贴图，切合适的图片
+        </pre>
+        <h2>viewport units</h2>
+        <pre>
+            The viewport — which is the visible area of your page in the browser you are using to view a site
+            vh, vw
+
+            iframe - 
+
+            use case:
+            Sizing things according to the viewport can be useful in your designs.
+            if you want a full-page hero section to show before the rest of your content, making that part of your page 100vh high will push the rest of the content below the viewport, meaning that it will only appear once the document is scrolled.
+        </pre>
+    </body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>images, media, and form elements</title>
+    </head>
+    <body>
+        <h1>images, media, and form elements</h1>
+        <h2>replaced elements</h2>
+        <pre>
+            images and video  = replaced elements
+            css cannot affect the internal layout of these elements
+            only their position on the page amongst other elements
+
+            having an aspect ratio = a size in horizontal x and verical y dimensions
+            displayed using the intrinsic dimensions of the file by default
+        </pre>
+        <h2>sizing images</h2>
+        <pre>
+            object-fit: ["cover", "contain", "fill"]
+
+            cover vs contain vs fill
+            keep aspect ratio | keep aspect ratio  | does not keep aspect ratio
+            totally cover the box, some part will be cropped | totally contained in the box, some part of the box will have space | totally contained and covered in the box, no extra space
+
+            object-fit vs background-attachment
+        </pre>
+        <h2>replaced elements in layout</h2>
+        <pre>
+            normal layout vs flex, gird layout
+
+            elements vs images (in flex, grid layout)
+            | elements are stretched by defualt to filll the entire area
+            | image will not stretch, and instead will be aligned to the start of the gid area or flex container
+        </pre>
+        <h2>form elements</h2>
+        <pre>
+            it's time to review web form module!!
+
+            complex fields like color and date picker
+            textarea, 
+            fieldset, legend data types : contain and lable parts of forms
+            empty fields different browesers will act differently
+        </pre>
+        <pre>
+            styling text input elements
+
+            input text, input email, textarea:
+            the default styling of these elements will differ however based on the 
+            operating system!! and browser!! that your user visits the site with    
+        </pre>
+        <pre>
+            inheritance and form elements
+
+            !important
+
+            In some browsers, form elements do not inherit font styling by default. 
+            那这句话就是说在一些浏览器中表单的元素不会继承这个自己的风格，默认了，
+            尽管就根据这个按照规范说它是继承的，但是不能进来记，它会设置就不继承，
+            Therefore if you want to be sure that your form fields use the font 
+            defined on the body, or on a parent element,
+            you should add this rule to your CSS.
+
+            button,
+            input,
+            select,
+            textarea {
+                font-family: inherit;
+                他这个自己家族就会继承这个他的父母元素的自己的家族，
+                // inherited: yes   norm
+                但是的话留意一下他这个方单位啊，这个属于他默认是会继承的，你看，他这里说了就是说会被医用到所有的元素中，
+
+                font-size: 100%;
+                这个100%他的对象应该就是他的父母元素，那么这个百分百应该指的就是字体的尺寸，
+            }
+        </pre>
+        <pre>
+            form elements and box-sizing
+
+            Across browsers form elements use different box sizing rules for different widgets.
+            consistent experience
+
+            For consistency it is a good idea to set margins and padding to 0 on all elements, 
+            then add these back in when styling particular controls
+
+            他说对于这个持续持有一个连续性的体验，最好就是说在一开始，对所有的这个元素啊，把它们的外边距和内边距都设置成0，
+            然后再根据你自己的想法，再去添加一些特别的，给它添加特别的风格来控制，
+
+            button,
+            input,
+            select,
+            textarea {
+                box-sizing: border-box;
+                padding: 0;
+                margin: 0;
+            }
+        </pre>
+        <pre>
+            other userful settings
+
+            overflow: auto on textarea elements to stop IE showing a scrollbar when there is no need for one
+
+            他说要就是说，对于这个多文本字段的元素，我要给大家添加一个over floor这个属性给大家一个auto这个数据类型，
+            这样做的为了为目的是什么？就是为了阻止安逸就显示一个滚动条，就说当你根本不需要这个滚动条，它还是还是一个滚动条，所以说必须把它取消掉，
+            textarea {
+                overflow: auto;
+            }
+        </pre>
+        <pre>
+            putting it all together into a "reset"
+
+            button,
+            input,
+            select,
+            textarea {
+                font-family: inherit;
+                font-size: 100%;
+                box-sizing: border-box;
+                padding: 0; margin: 0;
+            }
+            textarea {
+                overflow: auto;  //  ie scrollbar
+            }
+
+            note:
+            Normalizing stylesheets are used by many developers to create a set of baseline styles to use on all projects. 
+            Typically these do similar things to those described above, making sure that anything different across browsers is set to a consistent default before you do your own work on the CSS. 
+            They are not as important as they once were, as browsers are typically more consistent than in the past
+            However if you want to take a look at one example, check out Normalize.css, which is a very popular stylesheet used as a base by many projects.
+        </pre>
+    </body>
+</html>

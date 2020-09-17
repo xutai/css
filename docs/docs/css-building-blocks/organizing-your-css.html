@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <h2>tips to keep your css tidy</h2>
+
+        <h3>does your project have a coding style guide</h3>
+        <pre>
+            maybe follow mdn's coding style is a good choice
+        </pre>
+
+        <h3>keep it consistent</h3>
+        <pre>
+            !important
+            i've been doing on this badly
+
+            Consistency 
+                using the same naming conventions for classes
+                choosing one method of describing color
+                maintaining consistent formatting
+                    for example will you use tabs or spaces to indent your code? 
+                    If spaces, how many spaces?
+        </pre>
+
+        <h3>formatting readable css</h3>
+        <pre>
+            Some developers put all of the rules onto a single line
+            Other developers prefer to break everything onto a new line
+                i prefer this way
+                CSS doesn't mind which one you use. 
+                We mdn developers personally find it is more readable to have 
+                each property and value pair on a new line.
+        </pre>
+
+        <h3>comment your css</h3>
+        <pre>
+            add a block of comments between logical sections, 
+                to help locate different sections quickly when scanning through
+                or even give you something to search for to jump right into that part of the CSS
+                for example: "||"
+
+            What you should comment are the things where you made a particular decision for a reason
+                You may have used a CSS property in a specific way to get around older browser incompatibilities
+
+            add the URL of the tutorial to the comments
+            
+        </pre>
+
+        <h3>create logical sections in your stylesheet</h3>
+        <pre>
+            !important 
+
+            common styling | general styles
+                have all of the common styling first in the stylesheet.
+                body,
+                h1, h2, h3, h4, h5
+                ul and ol
+                the talbe properies
+                links
+            utility classes
+                for example a class that removes the default list style for lists 
+                we're going to display as flex items or in some other way.
+            sitewide
+                the basic page layout, the header, navigation styling
+            store pages
+                specific things, broken down by the context, page or even component in which they are used
+        </pre>
+
+        <h3>avoid overly-specific selectors</h3>
+        <pre>
+            very specific selectors
+                duplicate chunks of your CSS to apply the same rules to another element
+            simple class
+                apply that anywhere
+
+            There will be times when making something more specific makes sense,
+            however this will generally be an exception rather than usual practice.
+            === 
+            very specific selectors (exception)
+            simple class (usual practice)
+        </pre>
+
+        <h3>break large stylesheets into multiple smaller ones</h3>
+        <pre>
+            very different styles for distinct parts of the site
+                a stylesheet that includes all the global rules
+                smaller ones that include the specific rules needed for those sections
+        </pre>
+
+        <h2>other tools that can help</h2>
+
+        <h3>css methodologies</h3>
+        <pre>
+            prefer 
+                adopting one of the approaches already designed by the community and tested across many projects
+            rather than
+                come up with your own rules for writing CSS
+        </pre>
+        <h4>oocss</h4>
+        <pre>
+            concept of Object Oriented CSS (OOCSS)
+                separate your CSS into reusable objects, 
+                which can be used anywhere you need on your site
+
+            create custom CSS for the different places this pattern is used
+
+
+            reusing CSS (like overriding)
+
+
+            The work that Nicole Sullivan did in describing this approach and promoting it means that 
+            even people who are not strictly following an OOCSS approach today
+            will generally be reusing CSS in this way
+            it has entered our understanding as a good way to approach things in general
+        </pre>
+        <h4>bem</h4>
+        <pre>
+            block element modifier
+                a block is a standalone entity such as a button, menu, or logo
+                An element is something like a list item or a title that is tied to the block it is in
+                A modifier is a flag on a block or element that changes the styling or behavior
+
+                extensive use of dashes and underscores in the CSS classes
+                strict naming conventions of BEM
+
+            widely used in larger web projects and many people write their CSS in this way
+        </pre>
+        <h4>other common systems</h4>
+        <pre>
+            The disadvantage of using such a system is that 
+            they can seem overly complex, especially for smaller projects.
+        </pre>
+
+        <h3>build systems for css</h3>
+        <pre>
+            tooling
+                pre-processors
+                    A pre-processor runs over your raw files and turns them into a stylesheet,
+                    sass
+                post-processors
+                    post-processor takes your finished stylesheet and does something to it 
+                    — perhaps to optimize it in order that it will load faster.
+
+                require that your development environment can run the scripts
+                Many code editors can do this for you
+                or you can install command line tools to help.
+        </pre>
+        <h4>defining variables</h4>
+        <pre>
+            without sass vs sass
+            cons:
+            CSS now has native custom properties, making this feature increasingly less important,
+            pros:
+            define all of the colors and fonts used in a project as settings, 
+            then use that variable around the project
+            This means that if you realise you have used the wrong shade of blue, 
+            you only need change it in one place.
+        </pre>
+        <h4>compiling component stylesheets</h4>
+        <pre>
+            without sass vs sass
+            organise CSS is to break down stylesheets into smaller stylesheets |
+            take this to another level and have lots of very small stylesheets
+            — even going as far as having a separate stylesheet for each component
+
+            partials 局部模板
+            check the example
+            codepen practice
+
+        </pre>
+        <h4>post-processing for optimization</h4>
+        <pre>
+            a post-processing step could be to optimize the CSS by 
+            stripping out anything unnecessary in the production version
+
+            f you are concerned about adding size to your stylesheets by 
+            adding a lot of additional comments and whitespace for example
+        </pre>
+        
+        <h2>wrapping up</h2>
+        <pre>
+            
+        </pre>
+    </body>
+</html>
+
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-color: rgb(92, 102, 114);
+        }
+        * {
+            box-sizing: border-box;
+        }
+        .span_left {
+            width: 200px;
+            height: 300px;
+            display: inline-block;
+            float: left;
+        }
+        .span_right {
+            width: 200px;
+            height: 300px;
+            display: inline-block;
+            float: left;
+            background-color: white;
+            padding: 100px 35px;
+        }
+        .avatar {
+
+            border-radius: 5px;
+            width: 200px;
+            height: 300px;
+        }
+
+        .name {
+            font-size: 22px;
+            text-align: center;
+            color: #000000;
+            font-weight: bold;
+            padding: 0 0;
+            margin: 0 0;
+            letter-spacing: 3px;
+            display: block;
+
+
+        }
+        .title {
+            display: inline-block;
+            text-align: center;
+            font-size: 9px;
+            background-image: linear-gradient(to bottom right, orange, red);
+            padding: 2px;
+            color: white;
+            opacity: 0.9;
+        }
+        .ifollow {
+            display: inline-block;
+            text-align: center;
+            font-size: 9px;
+            background-image: linear-gradient(to bottom right, deepskyblue, #2980b9);
+            padding: 2px;
+            color: white;
+            opacity: 0.9;
+        }
+
+
+        .triangle {
+            position: absolute;
+            top: 0;
+            left: 140px;
+            width: 0;
+            height: 0;
+            border-width: 300px 60px 0  0;
+            border-style: solid;
+            border-color: transparent white transparent transparent;
+            z-index: 4;
+        }
+        .img1{
+            width: 30px;
+            height: 30px;
+            margin:10px 0 0 5px;
+        }
+        .img2 {
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            margin:10px 0 0 5px;
+        }
+        .img3 {
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            margin:10px 0 0 5px;
+        }
+        .cover {
+        width: 200px;
+            height: 300px;
+            background-color: rgba(222, 89, 109, 0.2);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div style="width: 600px;height:400px;background-image: linear-gradient(to right bottom, rgb(224,88,107),rgb(34,159,207));;position: relative;padding: 50px 0;margin: 100px 0 0 100px">
+<div style="width: 400px;height:300px;margin: 0 auto;position: relative; box-shadow: 3px 3px 10px 4px rgba(0,0,0,.1);">
+
+
+        <span class="span_left">
+             <img src="../../images/ryu.jpg" alt="" class="avatar">
+        </span>
+        <span class="span_right">
+            <span class="cover"></span>
+             <span class="name">Ryu</span>
+            <span class="title">UI DESIGNER</span>
+            <span class="ifollow">+FOLLOW</span>
+            <span><img src="../../images/github.png" alt="" class="img1"></span>
+            <span><img src="../../images/ps.png" alt="" class="img2"></span>
+            <span><img src="../../images/ij.png" alt="" class="img3"></span>
+        </span>
+
+    <span class="triangle"></span>
+    <span class="cover"></span>
+</div>
+</div>
+
+
+</body>
+</html>

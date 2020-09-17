@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../../tools/vue.js"></script>
+</head>
+<body>
+
+
+
+<h2 id="vueobj" v-on:mouseover="onhover" v-bind:style="objbg">vue.js Expand from center</h2>
+
+<script>
+    new Vue({
+        el: '#vueobj',
+        data: {
+            objbg: {
+                backgroundColor: 'green'
+            }
+        },
+        methods: {
+            onhover: function (event) {
+                // console.log(this);
+                // console.log(event);
+                // console.log(event.target);
+                // console.log(event.target.style.backgroundColor);
+                event.target.style.backgroundColor = 'blue';
+            }
+        }
+
+    })
+</script>
+
+<style>
+    .grow-enter-active, .grow-leave-active {
+        transition: opacity, width 2s;
+    }
+    .grow-enter, .grow-leave-to {
+        opacity: 0;
+    }
+    .grow-enter {
+        width: 0;
+        background-color: #dfcc60;
+    }
+    .grow-enter-to {
+        width: 200px;
+        background-color: #0ddf73;
+    }
+    .grow-leave {
+
+    }
+    .grow-leave-to {
+
+    }
+    .grow-enter-active {
+
+    }
+    .grow-leave-active {
+
+    }
+</style>
+
+<div id="vueobj1">
+<h2  v-on:mouseover="mouseover = !mouseover"  v-on:mouseout="mouseout = !mouseout">hover me </h2>
+<transition name="grow">
+    <div v-if="mouseover, mouseout">grow</div>
+</transition>
+</div>
+
+<script>
+    new Vue({
+        el: '#vueobj1',
+        data: {
+           // mouseover: true,
+           // mouseout: true
+        },
+        methods: {
+            mouseover: function(){
+                console.log('mouseover');
+            },
+            mouseout: function () {
+                console.log('mouseout');
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

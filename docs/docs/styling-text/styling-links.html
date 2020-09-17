@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>stying links</title>
+        <link rel="stylesheet" href="../common.css">
+    </head>
+    <body>
+        <h1>styling links</h1>
+
+        <h2>let's look at some links</h2>
+
+        <h3>link states</h3>
+        <pre>
+            link (unvisited)
+                default state
+                :link
+            visited
+                visted(exists in browser's history)
+                :visited
+            hover
+                hovered over by a user's mouse pointer
+                :hover
+            focus
+                e.g. moved to by a keyboard user using the tab key or similar
+                or programmatically focused using HTMLElement.focus()
+                :focus
+            active
+                being activated
+                e.g. clicked on
+                :active
+        </pre>
+        <h3>default styles</h3>
+        <pre>
+            fake links
+                # (hash, or pound sign) is put in place of the real URL
+                # just links to the current page
+
+            default styles:
+                    underlined
+                unvisited 
+                    blue
+                visited 
+                    purple
+                hovering
+                    mouse pointer change to a little hand icon
+                focused
+                    outline
+                    tab key (macos crtl+f7)
+                active
+                    red
+                    (Try holding down the mouse button on the link as you click it.)
+
+            at least:
+                underlining or highlight them in some other way
+                react when hovered or focused, a slightly differently way when activated
+
+            default styles turned off/changed:
+                color
+                cursor
+                    you shouldn't turn this off unless you've got a very good reason.
+                outline
+                    outline vs border
+                    an outline is similar to a border
+                    outline doesn't take up space in the box | border takes up space in the box
+                    it just sits over the top of the background | 
+                    userful accessibility aid |
+
+                    at least double up the syltes given to the link hover, focus state 
+
+            example
+                to get rid of the default text underline and focus outline (which varies across browsers anyway
+
+                border-bottom vs text-decoration: underline
+                The underline has been created using border-bottom, not text-decoration — 
+                some people prefer this because 
+                the former has better styling options | than the latter, 
+                and is drawn a bit lower, |
+                so doesn't cut across the descenders of the word being underlined (e.g. the tails on g and y).
+                cut across 抄近路通过；径直穿过；打断
+                这句话是不是就是说他这个这个不会禁止穿过这个这个这些字母，就是说比如记或者外它的最下面的这个部分，
+
+                The border-bottom value has been set as 1px solid, with no color specified
+                makes the border adopt the same color as the element's text,
+                which is useful in cases like this where the text is a different color in each case.
+
+                inverted color scheme 
+                color = background-color, background-color = color
+        </pre>
+        <h3>styling some links</h3>
+        <pre>
+            empty rulesets:
+            a, 
+            a:link,
+            a:visited,
+            a:focus,
+            a:hover,
+            a:active
+
+            This order is important because the link styles build on one another
+                the styles in the first rule will apply to all the subsequent ones
+                when a link is being activated, it is also being hovered over
+                If you put these in the wrong order, things won't work properly.
+                To remember the order, you could try using a mnemonic like LoVe Fears HAte.
+                mnemonic adj. 记忆的；助记的；记忆术的
+                LVFHA - LoVe Fears HAte
+                
+        </pre>
+
+
+        <h2>including icons on links</h2>
+        <pre>
+            and then specify the position as 100% of the way over to the right of the text content,
+
+
+            We also use background-size to specify the size we want the background image to be shown at — 
+            it is useful to have a larger icon and then resize it like this as needed for responsive web design purposes. 
+            This does however only work with IE 9 and later, so if you need to support those older browsers, 
+            you'll just have to resize the image and insert it as is.
+
+            padding-right on the links to make space for 
+            
+                https://developer.mozilla.org/en-US/docs/Web/CSS/background-position
+            background percentages
+                The background-position CSS property sets the initial position for each background image. 
+                The position is relative to the position layer set by background-origin.
+            The percentage offset of the given background image's position is relative to the container.
+                value of 0% means that the left (or top) edge of the background image is 
+                aligned with the corresponding left (or top) edge of the container
+                A value of 100% means that the right (or bottom) edge of the background image is 
+                aligned with the right (or bottom) edge of the container
+
+                (container width - image width) * (position x%) = (x offset value)
+
+            background-origin
+                https://developer.mozilla.org/en-US/docs/Web/CSS/background-origin
+                The background-origin CSS property sets the background's origin: 
+                from the border start, inside the border, or inside the padding.
+
+            100% 图片的右边和边距盒子的右边对齐
+
+
+            how did we select just external links?
+                you should only be using absolute URLs for external links
+                    text "http" should therefore only appear in external links
+                        attribute selector: a[href*="http"] selects a elements but only if they have an href attribute
+                            *  means with a value that contains "http" somewhere inside it.
+                it is more efficient to use relative links to link to other parts of your own site
+
+                https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors
+                [attr*=value]
+                    Represents elements with an attribute name of attr 
+                    whose value contains at least one occurrence of value within the string
+        </pre>
+
+
+
+        <h2>styling links as buttons</h2>
+        <pre>
+
+
+            0.625% * 4 = 2.5%
+            19.5% * 5 =  97.5%
+
+            why ul padding: 0;
+                review default styles
+
+                
+            why li - inline, 
+                causes the list items to sit on the same line as one another — they now behave like inline elements.
+                to keep all li el in the same line, if not they will be in the next lines
+                li default block
+
+            why a - inline-block not a - inline?
+                a elements are inline by default
+                review box-model
+                    review inline, inline-block, block
+                    
+
+            line-height
+                relate to element font-size
+                which also has the advantage of centering the text vertically
+
+
+
+                
+            <ul>
+                <li><a href="#">Home</a></li><li><a href="#">Pizza</a></li><li><a href="#">Music</a></li><li><a href="#">Wombats</a></li><li><a href="#">Finland</a></li>
+              </ul>
+              
+            spaces, line breaks 
+                You may have noticed that the list items in the HTML are all put on the same line as each other 
+                — this is done because spaces/line breaks in between inline block elements create spaces on the page, 
+                just like the spaces in between words, and such spaces would break our horizontal navigation menu layout. 
+                So we've removed the spaces. 
+        </pre>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        svg {
+            height: 26px
+        }
+
+        svg path {
+            stroke: red;
+            stroke-width: 2;
+        }
+
+        svg path d {
+
+        }
+
+
+        svg:hover path {
+            stroke: #0beaff;
+            animation: elasticInput 1.4s ease forwards ;
+        }
+
+
+        @keyframes elasticInput {
+            100% {
+                d: path("M2,2 C21,17 46,25 74,25 C102,25 118,25 120,25");
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+
+
+<svg width="120px" height="26px" viewBox="0 0 120 26">
+    <path d="M0,25, C21,25 46,25 74,25 C102,25 118,25 120,25"></path>
+</svg>
+
+</body>
+</html>

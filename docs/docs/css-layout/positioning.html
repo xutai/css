@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>positioning</title>
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+    <header>
+        <h1>positioning</h1>
+    </header>
+    <nav id="nav">
+        <ul>
+            <li><a href="../index.html">home</a></li>
+        </ul>
+        <img src="../images/image.jpg" alt="image" class="image-positioned">
+        <a href="#nav"><img src="../images/image.jpg" alt="image" class="image-fixed-positioned"></a>
+        <div class="block-positioned"></div>
+    </nav>
+    <main>
+        <aside>
+            <ul>
+                <li>
+                    <p>introducing positioning</p>
+                    <ul>
+                        <li><a href="#static-positioning">static positioning</a></li>
+                        <li><a href="#relative-positioning">relative positioning</a></li>
+                        <li><a href="#introducing-top-bottom-left-and-right">introducing top, bottom, left, and
+                                right</a></li>
+                        <li><a href="#absolute-positioning">absolute positioning</a></li>
+                        <li><a href="#positioning-contexts">positioning contexts</a></li>
+                        <li><a href="#introducing-z-index">introducing z-index</a></li>
+                        <li><a href="#fixed-positioning">fixed positioning</a></li>
+                        <li><a href="#position-sticky">position: sticky</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <article>
+            <p>Positioning allows you to take elements out of the normal document layout flow, and make them behave
+                differently</p>
+
+            <section>
+                <h2>introducing positioning</h2>
+                <p>allow us to override the basic document flow behavior described above <br>
+                    &nbsp;&nbsp;sitting on top of one another <br>
+                    &nbsp;&nbsp;always remaining in the same place inside the browser viewport</p>
+                <section id="static-positioning">
+                    <h3>static positioning</h3>
+                    <p>put the element into its normal position in the document layout flow</p>
+                </section>
+                <section id="relative-positioning">
+                    <h3>relative positioning</h2>
+                    <p>very similar to static positioning <br>
+                        except that once the positioned element has taken its place in the normal layout flow, you can
+                        then modify its final position <br>
+                        &nbsp;&nbsp;including making it overlap other elements on the page
+                    </p>
+                </section>
+                <section id="introducing-top-bottom-left-and-right">
+                    <h3>introducing top, bottom, left, and right</h2>
+                    <p></p>
+                </section>
+                <section id="absolute-positioning">
+                    <h3>absolute positioning</h2>
+                    <p>the gap where the positioned element should be in the document flow is no longer there, <br>
+                        An absolutely positioned element no longer exists in the normal document layout flow <br>
+                        it sits on its own layer separate from everything else <br>
+                        &nbsp;&nbsp;we can create isolated UI features that don't interfere with the position of other
+                        elements on the page <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;popup information boxes and control menus <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;rollover panels <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;UI features that can be dragged and dropped anywhere on the page
+                        containing element
+                    </p>
+                    <p>my note: if no containing element (container, container's container etc..., go up until html
+                        element) is set with "relative, absolute, fixed" etc,
+                        or if they all are set with "static", then the html element wil lbe the containing element or
+                        just the viewport? because its in a different layer
+                    </p>
+                    <p><strong>try top: 0; bottom: 0; left: 0; right: 0, why setting bottom, and right ?</strong>,
+                        look like this works for block element, it cover the whole layer, like whole html or viewport
+                        <br>
+                        the effect is so weird, it's not cover the document, or html or body, it's just hard to explain
+                        <br>
+                        the layer underneath looks like it's not possible to interact with</p>
+                    <p>margins still affect positioned elements. Margin collapsing doesn't, however.</p>
+                </section>
+            </section>
+            <section id="positioning-contexts">
+                <h3>positioning contexts</h2>
+                <p><strong>containing element: dependent on the position property of the ancestors of the positioned
+                        element</strong></p>
+                <p>static <br>
+                    &nbsp;&nbsp;initial containing block <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;this block has the dimensions of the viewport, and is also the block that
+                    contains the &lt;html&gt; element <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Simply put, the absolutely positioned element will be contained outside of
+                    the &lt;html&gt; element, and be positioned relative to the initial viewport. </p>
+                <p>positioning context: which element the absolutely positioned element is positioned relative to <br>
+                    &nbsp;&nbsp;setting positioning on one of the element's ancestors </p>
+            </section>
+            <section id="introducing-z-index">
+                <h3>introducing z-index</h2>
+                <p>overlap. positioning text. <br>
+                    positioned or not: positioned elements win over non-positioned elements <br>
+                    order in the source: later win over former <br>
+                    stacking order: z-index(alias of z-axis), positive values move them higher up the. default all auto
+                    === 0</p>
+            </section>
+            <section id="fixed-positioning">
+                <h3>fixed positioning</h2>
+                <p>browser viewport <br>
+                    positioned heading no longer appears in the document flow, so the rest of the content moves up to
+                    the top; <br>
+                    add margin to some element to change it</p>
+                <p>why margin-top: 60px, because h1 element height of content 37.333 + margin-bottom 21.4333</p>
+            </section>
+            <section id="position-sticky">
+                <h3>position sticky</h2>
+                <p>newer, hybrid between relative and fixed <br>
+                    it is relatively positioned until it is scrolled to a certain threshold point, after which it becomes fixed <br>
+                    &nbsp;&nbsp;(e.g. 10px from the top of the viewport) <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;navigation bar</p>
+                    <p>position: sticky along with top: 0, supporting browsers will stick the headings to the top of the viewport as they reach that position. <br>
+                        Each subsequent header will then <strong>replace the previous one</strong> as it scrolls up to that position. <br>
+                        by testing, looks like it can only replace the same element type, eg. h2 cannot replace h3, so they will stack up one another
+                    </p>
+            </section>
+        </article>
+    </main>
+    <footer></footer>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            section.test {
+                width:100%;
+                height: 300px;
+                border: 1px solid red;
+                display: flex;
+                justify-content: center;
+            }
+            div.test {
+                width: 50%;
+                height: 50%;
+                background-color: aqua;
+            }
+        </style>
+    </head>
+    <body>
+        <p>The CSS justify-content property defines how the browser distributes space between and around content items along the main-axis of a flex container, and the inline axis of a grid container.</p>
+
+
+<table>
+    <tr>
+        <th></th>
+        <th>flex</th>
+        <th>grid</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td>main-axis</td>
+        <td>inline axis</td>
+    </tr>
+</table>
+
+
+
+
+<p>The alignment is done after the lengths and auto margins are applied</p>
+<p>meaning that, if in a Flexbox layout there is at least one flexible element, with flex-grow different from 0, it will have no effect as there won't be any available space.</p>
+
+
+<section class="test">
+    <div class="test"></div>
+</section>
+    </body>
+</html>

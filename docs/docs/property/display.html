@@ -1,0 +1,291 @@
+https://developer.mozilla.org/en-US/docs/Web/CSS/display
+
+
+
+
+<section>
+    <p>The display CSS property sets whether an element is treated as a block or inline element and the layout used for
+        its children, such as flow layout, grid or flex.</p>
+    <p>Formally, the display property sets an element's inner and outer display types. The outer type sets an element's
+        participation in flow layout; the inner type sets the layout of children. Some values of display are fully
+        defined in their own individual specifications; for example the detail of what happens when display: flex is
+        declared is defined in the CSS Flexible Box Model specification. See the table at the end of this document for
+        all of the individual specifications.</p>
+</section>
+
+<section>
+    <h2>Syntax</h2>
+    <section>
+        <h3>Outside</h3>
+        <p>display-outside</p>
+        <p>These keywords specify the element’s outer display type, which is essentially its role in flow layout.</p>
+        <dl>
+            <dt>block</dt>
+            <dd>The element generates a block element box, generating line breaks both before and after the element when
+                in the normal flow.</dd>
+        </dl>
+        <dl>
+            <dt>inline</dt>
+            <dd>The element generates one or more inline element boxes that do not generate line breaks before or after
+                themselves. In normal flow, the next element will be on the same line if there is space</dd>
+        </dl>
+        <dl>
+            <dt>run-in</dt>
+            <dd>The element generates a run-in box. If the adjacent sibling of the element defined as display: run-in
+                box is a block box, the run-in box becomes the first inline box of the block box that follows it. </dd>
+        </dl>
+        <p>Run-in elements act like inlines or blocks, depending on the surrounding elements. That is: If the run-in box
+            contains a block box, same as block. If a block box follows the run-in box, the run-in box becomes the first
+            inline box of the block box. If an inline box follows, the run-in box becomes a block box.</p>
+        <p class="warning">Browsers that support the two value syntax, on finding the outer value only, such as when
+            display: block or display: inline is specified, will set the inner value to flow. This will result in
+            expected behavior; for example if you specify an element to be block, you would expect that the children of
+            that element would participate in block and inline normal flow layout.</p>
+    </section>
+    <section>
+        <h3>Inside</h3>
+        <p>display-inside</p>
+        <p>These keywords specify the element’s inner display type, which defines the type of formatting context that
+            its contents are laid out in (assuming it is a non-replaced element).</p>
+        <dl>
+            <dt>flow</dt>
+            <dd>The element lays out its contents using flow layout (block-and-inline layout).
+                If its outer display type is inline or run-in, and it is participating in a block or inline formatting
+                context, then it generates an inline box. Otherwise it generates a block container box.</dd>
+        </dl>
+        <p>Depending on the value of other properties (such as position, float, or overflow) and whether it is itself
+            participating in a block or inline formatting context, it either establishes a new block formatting context
+            (BFC) for its contents or integrates its contents into its parent formatting context.</p>
+        <dl>
+            <dt>flow-root</dt>
+            <dd>The element generates a block element box that establishes a new block formatting context, defining
+                where the formatting root lies.</dd>
+        </dl>
+        <dl>
+            <dt>table</dt>
+            <dd>These elements behave like HTML table elements. It defines a block-level box.</dd>
+        </dl>
+        <dl>
+            <dt>flex</dt>
+            <dd>The element behaves like a block element and lays out its content according to the flexbox model.</dd>
+        </dl>
+        <dl>
+            <dt>grid</dt>
+            <dd>The element behaves like a block element and lays out its content according to the grid model.</dd>
+        </dl>
+        <dl>
+            <dt>ruby</dt>
+            <dd>The element behaves like an inline element and lays out its content according to the ruby formatting
+                model. It behaves like the corresponding HTML ruby elements.</dd>
+        </dl>
+        <p class="warning">Browsers that support the two value syntax, on finding the inner value only, such as when
+            display: flex or display: grid is specified, will set their outer value to block. This will result in
+            expected behavior; for example if you specify an element to be display: grid, you would expect that the box
+            created on the grid container would be a block level box.</p>
+    </section>
+    <section>
+        <h3>List Item</h3>
+        <p>display-listitem</p>
+        <p>The element generates a block box for the content and a separate list-item inline box.</p>
+        <p>A single value of list-item will cause the element to behave like a list item. This can be used together with
+            list-style-type and list-style-position.</p>
+        <p>list-item can also be combined with any display-outside keyword and the flow or flow-root display-outside
+            keywords.</p>
+        <p class="warning">In browsers that support the two-value syntax, if no inner value is specified it will default
+            to flow. If no outer value is specified, the principal box will have an outer display type of block.</p>
+    </section>
+    <section>
+        <h3>Internal</h3>
+        <p>display-internal</p>
+        <p>Some layout models such as table and ruby have a complex internal structure, with several different roles
+            that their children and descendants can fill. This section defines those "internal" display values, which
+            only have meaning within that particular layout mode.</p>
+        <dl>
+            <dt>table-row-group</dt>
+            <dd>tbody</dd>
+            <dt>table-header-group</dt>
+            <dd>thead</dd>
+        </dl>
+        <p>.....</p>
+    </section>
+    <section>
+        <h3>Box</h3>
+        <p>display-box</p>
+        <p>These values define whether an element generates display boxes at all.</p>
+        <dl>
+            <dt>contents</dt>
+            <dd>These elements don't produce a specific box by themselves. They are replaced by their pseudo-box and
+                their child boxes. Please note that the CSS Display Level 3 spec defines how the contents value should
+                affect "unusual elements" — elements that aren’t rendered purely by CSS box concepts such as replaced
+                elements. See Appendix B: Effects of display: contents on Unusual Elements for more details.
+                <br>
+                <br>
+                Due to a bug in browsers this will currently remove the element from the accessibility tree — screen
+                readers will not look at what's inside. See the Accessibility concerns section below for more details.
+            </dd>
+        </dl>
+        <dl>
+            <dt>none</dt>
+            <dd>Turns off the display of an element so that it has no effect on layout (the document is rendered as
+                though the element did not exist). All descendant elements also have their display turned off.
+                <br>
+                To have an element take up the space that it would normally take, but without actually rendering
+                anything, use the visibility property instead.
+            </dd>
+        </dl>
+    </section>
+    <section>
+        <h3>Legacy</h3>
+        <p>display-legacy</p>
+        <p>CSS 2 used a single-keyword syntax for the display property, requiring separate keywords for block-level and
+            inline-level variants of the same layout mode.</p>
+        <dl>
+            <dt>inline-block</dt>
+            <dd>The element generates a block element box that will be flowed with surrounding content as if it were a
+                single inline box (behaving much like a replaced element would).
+                <br>
+                It is equivalent to inline flow-root.
+            </dd>
+            <dl>
+                <dt>inline-table</dt>
+                <dd>he inline-table value does not have a direct mapping in HTML. It behaves like an HTML table element,
+                    but as an inline box, rather than a block-level box. Inside the table box is a block-level context.
+                    <br>
+                    It is equivalent to inline table.
+                </dd>
+            </dl>
+            <dl>
+                <dt>inline-flex</dt>
+                <dd>The element behaves like an inline element and lays out its content according to the flexbox model.
+                    <br>
+                    It is equivalent to inline flex.
+                </dd>
+            </dl>
+            <dl>
+                <dt>inline-grid</dt>
+                <dd>The element behaves like an inline element and lays out its content according to the grid model.
+                    <br>
+                    It is equivalent to inline grid.
+                </dd>
+            </dl>
+        </dl>
+    </section>
+    <section>
+        <h3>Which syntax should you use now?</h3>
+        <p>The Level 3 specification details two values for the display property — enabling the specification of the
+            outer and inner display type explicitly — but this is not yet well-supported by browsers.</p>
+        <p>The display-legacy methods allow the same results with single keyword values, and should be favoured by
+            developers until the two keyword values are better supported. For example, using two values you might
+            specify an inline flex container as follows:</p>
+        <code>.container {
+            display: inline flex;
+          }</code>
+        <p>This can currently be specified using a single value.</p>
+        <code>.container {
+            display: inline-flex;
+          }</code>
+        <p>For more information on these changes to the specification, see the article Adapting to the new two-value
+            syntax of display.</p>
+    </section>
+    <section>
+        <h3>Global</h3>
+        <code>
+            /* Global values */
+display: inherit;
+display: initial;
+display: unset;
+        </code>
+    </section>
+</section>
+<section>
+    <h2>Guides and Examples</h2>
+    <p>The individual pages for the different types of value that display can have set on it feature multiple examples of those values in action — see the Syntax section. In addition, see the following material, which covers the various values of display in depth.</p>
+    <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display/two-value_syntax_of_display">Adapting to the new two-value syntax of display</a></li>
+    </ul>
+    <section>
+        <h3>CSS Flow Layout (display: block, display: inline)</h3>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/Block_and_Inline_Layout_in_Normal_Flow">Block and Inline Layout in Normal Flow</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/Flow_Layout_and_Overflow"></a>Flow Layout and Overflow</li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/Flow_Layout_and_Writing_Modes">Flow Layout and Writing Modes</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/Formatting_Contexts_Explained">Formatting Contexts Explained</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/In_Flow_and_Out_of_Flow">In Flow and Out of Flow</a></li>
+        </ul>
+    </section>
+    <section>
+        <h3>display: flex</h3>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">Basic concepts of flexbox</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container">Aligning Items in a Flex Container</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax">Controlling Ratios of Flex Items Along the Main Axis</a></li>
+            <li><a href="">Cross-browser Flexbox mixins</a></li>
+            <li><a href="">Mastering Wrapping of Flex Items</a></li>
+            <li><a href="">Ordering Flex Items</a></li>
+            <li><a href="">Relationship of flexbox to other layout methods</a></li>
+            <li><a href="">Backwards Compatibility of Flexbox</a></li>
+            <li><a href="">Typical use cases of Flexbox</a></li>
+        </ul>
+    </section>
+    <section>
+        <h3>display: grid</h3>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout">Basic Concepts of Grid Layout</a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+        </ul>
+    </section>
+
+</section>
+<section>
+    <h2>Accessibility concerns</h2>
+    <section>
+        <h3>display: none</h3>
+    </section>
+    <section>
+        <h3>display: contents</h3>
+    </section>
+    <section>
+        <h3>Tables</h3>
+    </section>
+    <section>
+        <h3></h3>
+    </section>
+    <section>
+        <h3></h3>
+    </section>
+    <section>
+        <h3></h3>
+    </section>
+</section>
+<section>
+    <h2>Specifications</h2>
+</section>
+<section>
+    <h2>Browser compatibility</h2>
+</section>
+<section>
+    <h2>See also</h2>
+</section>
+<section>
+    <h2></h2>
+</section>
+<section>
+    <h2></h2>
+</section>
+<section>
+    <h3></h3>
+</section>
+<section>
+    <h3></h3>
+</section>

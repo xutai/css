@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>multiple column layout</title>
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+    <header>
+        <h1>multiple column layout</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/index.html">index</a></li>
+        </ul>
+    </nav>
+    <main>
+        <aside>
+            <ul>
+                <li><a href="#a-basic-example">a basic example</a></li>
+                <li><a href="#styling-the-columns">styling the columns</a></li>
+                <li><a href="#spanning-columns">spanning columns</a></li>
+                <li><a href="#columns-and-fragmentation">columns and fragmentation</a></li>
+            </ul>
+        </aside>
+        <article>
+            <section id="a basic example">
+                <h2>a basic example</h2>
+                <p>multicol <br>
+                    &nbsp;&nbsp;column-count <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;create as many columns as the value you give it <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The columns that you create have flexible widths — the browser
+                    works out how much space to assign each column.<br>
+                    &nbsp;&nbsp;column-width <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;The browser will now give you as many columns as it can of the size that you
+                    specify <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; any remaining space is then shared between the existing columns<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; This means that you will not get exactly the width that you specify, unless
+                    your container is exactly divisible by that width.<br>
+                </p>
+            </section>
+            <section id="styling-the-columns">
+                <h2>styling the columns</h2>
+                <p>The columns created by multicol cannot be styled individually. <br>
+                    &nbsp;&nbsp;There is no way to make one column bigger than other columns, or to change the
+                    background or text color of a single column. <br>
+                    &nbsp;&nbsp;You have two opportunities to change the way that columns display:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;column-gap<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Changing the size of the gap between columns<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;column-rule<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adding a rule between columns<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the property accepts any length unit<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;column-rule-width<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;column-rule-style<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;column-rule-color<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the rule does not take up any width of its own<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It lies across the gap you created with column-gap<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To make more space either side of the rule you will need to
+                    increase the column-gap size.<br>
+                </p>
+            </section>
+            <section id="spanning-columns">
+                <h2>spanning columns</h2>
+                <p>cause an element to span across all of the columns <br>
+                    column-span: <br>
+                    &nbsp;&nbsp;none (default) <br>
+                    &nbsp;&nbsp;all</p>
+            </section>
+            <section id="#columns-and-fragmentation">
+                <h2>columns and fragmentation</h2>
+                <p>The content of a multi-column layout is fragmented.
+                    It essentially behaves the same way as content behaves in paged media — such as when you print a webpage
+                    When you turn your content into a multicol container it is fragmented into columns, and the content breaks to allow this to happen. <br>
+                    Sometimes, this breaking will happen in places that lead to a poor reading experience.
+                    In the live example below, I have used multicol to lay out a series of boxes, each of which have a heading and some text inside.
+                    <strong> The heading becomes separated from the text if the columns fragment between the two.</strong>
+                </p>
+                <p>To control this behavior we can use properties from the CSS Fragmentation specification
+                    This specification gives us properties to control breaking of content in multicol and in paged media. <br>
+                    For example, add the property break-inside with a value of avoid to the rules for .card. 
+                    This is the container of the heading and text, and therefore we do not want to fragment this box.
+                </p>
+                <p>break-inside: avoid (container of the heading and text) ( therefore we do not want to fragment this box) <br>
+                page-break-inside: avoid;</p>
+                <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fragmentation">css fragmentation</a></p>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <p>last time edit: Friday, June 19, 2020</p>
+        <p>xutai</p>
+    </footer>
+</body>
+
+</html>

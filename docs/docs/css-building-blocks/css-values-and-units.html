@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>css values and units</title>
+        <style>
+            html {
+                font-size: 16px;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            h1::before {
+                content: '*****';
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            pre {
+                font-size: 1em;
+                border-left: 5px solid rgb(0, 255, 0);
+                background-color: rgba(0,255,0,.1);
+                /* opacity: 0.1; */
+            }
+        </style>
+    </head>
+    <body>
+        <h1>css values and units</h1>
+
+        <pre>
+            angle brackets
+        </pre>
+        <pre>
+            what is a css values?
+
+            data types
+            (e.g. the color property, versus the &lt;color&gt; data type(value)
+
+            rgb() function
+            background-color: rgb(197,93,161); 
+            color: keywords, hex values, rgb() functions, etc
+            browser support
+
+        </pre>
+        <h2>numbers, lengths, and percentages</h2>
+        <pre>
+        
+            numeric:
+                &lt;integer&gt;
+                    whole
+                &lt;number&gt;
+                    decimal, it may or may not have a decimal point with a fractional component
+                &lt;dimension&gt;
+                    维度, a &lt;number&gt; with a unit; 
+                    umbrella category: length, angle, time, resolution types
+                &lt;percentage&gt;
+                    a fraction of some other value, %, always relative to another quantity
+        </pre>
+        <pre>
+            lengths
+
+                absolute length units
+                !as reference, not necessarily be remembered
+                    cm centimeters 1cm = 96px/2.54
+                    mm millimeters 1mm = 1/10th of 1cm
+                    Q quarter-millimeters 1Q = 1/40th of 1cm
+                    in inches 1in = 2.54cm = 96px
+                    pc picas 1pc = 1/6th of 1in
+                    pt points 1pt = 1/72th of 1in
+                    px pixels 1px = 1/96th of 1in
+
+                    !Most of these values are more useful when used for print, rather than screen output.
+                    these values might be useful when i want to use photoshop, rather than use it in screen output
+
+                relative length units
+                !important,  scale relative to 
+                    em font size of the parent (i assume, em = element) dont' forget inheritance
+                    ex x-height of the element's font
+                    ch ?the advance measure (width) of the glyph "0" of the element's font
+                    rem font size of the root element (i assume, rem = root element)
+                    lh line height of the element (lh = line height)
+                    vw 1% of the viewport's width (vw = viewport width)
+                    vh 1% of the viewport's height (vh = viewport height)
+                    vmin 1% of the viewport's smaller dimension. (x, y)
+                    vmax 1% of the viewport's larger dimension.  (x, y)
+
+                exploring an example
+                
+                ems and rems
+
+        </pre>
+        <pre>
+            percentages
+
+                a percentage of the font-size(or width) of the element's parent
+
+                Note that, while many values accept a length or a percentage, there are some that only accept length.
+                If the allowed value includes &lt;length-percentage&gt; then you can use a length or a percentage.
+
+
+        </pre>
+        <pre>
+            numbers
+
+                opacity (how transparent it is), opaque
+
+                When you use a number in CSS as a value it should not be surrounded in quotes.
+        </pre>
+
+
+        <h2>color</h2>
+        <pre>
+            The standard color system available in modern computers is 24 bit, 
+            which allows the display of about 16.7 million distinct colors 
+            via a combination of different red, green and blue channels with 256 different values per channel 
+            (256 x 256 x 256 = 16,777,216.)
+        </pre>
+        <pre>
+            color keywords:
+        </pre>
+        <pre>
+            hexadecimal rgb values:
+
+            hex: 十六进制, hexadecimal 十六进制的 decimal 十进位的
+            hash(pound) #, 
+            #xxxxxx, #(xx)(xx)(xx)
+            16: 0-f(0-15), 0123456789abcdef,
+            xx - 16*16 = 256
+
+            a lot more versatile than keywords
+        </pre>
+        <pre>
+            rgb and rgba values:
+
+            rgb() function - 
+            rgb(0-255, 0-255, 0-255) - 
+            rgb(red channel values of the colors, green, blue)
+            decimal
+
+            rgba: 
+            a - alpha channel of the color, which controls opacity
+            0 fully transparent, 1 fully opaque
+            different levels of transparency
+
+            ！important, must grasp
+            opacity vs alpha channel
+            element and everything inside it opaque | only makes the color you are specifying opaque
+
+
+            rgb(), rgba(), hsl(), hsla() pure aliases of each other,
+            but use the right one will have (very slightly 非常轻微的) better browser support
+        </pre>
+        <pre>
+            hsl and hsla values
+
+            slightly less well-supported than rgb  (not supported on old versions of IE)
+            designers like it
+            hsl() - hsl(hue, saturation, lightness)
+
+            hue: the base shade of the color. 
+            This takes a value between 0 and 360, representing the angles round a color wheel.
+            shade 色度 example:也许讨论颜色时使用色彩（tint）、色度（shade）和色调（tone）这三个术语是有好处的。 把色调、饱和度和亮度结合起来，我们就可以创建任何一种人眼哦可见的颜色。
+            色相（hue）：指饱和度和亮度都为100%的颜色。我们肉眼所见到于是能说出来的颜色就叫色相
+
+            saturation: how saturated is the color? 0-100%, 0 no color (appear completely black), 100% (full color saturation) 
+            饱和度（Saturation）：是指色调深浅的程度。各种单色光饱和度最高，单色光中掺入的白光愈多，饱和度愈低，白光占绝大部分时，饱和度接近于零
+
+            lightness: how light or bright is the color? 0-100%, 0 no light (appear completely black), 100% (full light, completely white)
+            视亮度（Lightness）:是指从白色外表到黑色外表的觉得延续体。它由物体外表的反射系数决议的，而与物体的照度有关。
+
+            hsla: hsl + alpha channel
+        </pre>
+        <pre>
+            for project, for consistency, entire project use the same color palette
+        </pre>
+
+        <h2>images</h2>
+        <pre>
+            url() image file or a gradient
+            background-imgae
+        </pre>
+
+        <h2>position</h2>
+        <pre>
+            position:
+
+            a set of 2d coordinates
+            If you only specify values for one axis the other will default to center.
+        </pre>
+
+        <h2>strings and identifiers</h2>
+        <pre>
+            identifiers: special keywords like red, black, they are not treated as strings
+            strings: when specifying generated content,  psueduo elements like before and after with property: value pair: content: ""
+
+        </pre>
+
+        <h2>functions</h2>
+        <pre>
+            function: In programming, a function is a reusable section of code that can be run multiple times to complete a repetitive task with minimum effort on the part of both the developer and the computer.
+            ** what a long sentence, i think no one would ask you what is function
+
+            url, rgb(), hsl(), calc()
+        </pre>
+    </body>
+</html>

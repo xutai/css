@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <style>
+
+        .fade-enter-active, .fade-leave-active {
+            transition: all .5s;
+            border-bottom: 2px solid green;
+            height: 50px;
+        }
+        .fade-enter,.fade-leave-to {
+            width: 0;
+
+        }
+        .fade-enter-to, .fade-leave {
+            width: 100px;
+        }
+
+    </style>
+    <script src="../../../tools/Vue/vue.js_v2.5.16.js"></script>
+</head>
+<body>
+<h2>cannot make it!!</h2>
+<div id="demo">
+    <div>
+        v-on:mouseover="mouseOver"
+    </div>
+    <transition
+            name="fade"
+            v-on:before-enter="beforeEnter"
+            v-on:enter="enter"
+            v-on:leave="leave"
+    >
+        <div v-show="">
+
+        </div>
+    </transition>
+</div>
+
+<script>
+    var demo = new Vue({
+        el: '#demo',
+        data: {
+            isActive: false
+        },
+        methods: {
+            beforeEnter: function (el) {
+                console.log('beforeEnter');
+            },
+            enter: function (el, done) {
+                console.log('enter')
+            },
+            leave: function (el, done) {
+                console.log('leave')
+            },
+        }
+    })
+</script>
+
+<p>
+    1. use function + transition + callback
+</p>
+
+</body>
+
+
+</html>

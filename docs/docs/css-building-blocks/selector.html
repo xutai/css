@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <style>
+        /* confusing adjacent siblings  selector */
+        #pp p {
+            color: blue
+        }
+
+        #pp p+p {
+            color: red
+        }
+
+        /* pseudo-classes with universal selector */
+
+        /* :first-child */
+        /* article:first-child {
+            color: green;
+        } */
+
+        article *:first-child {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <pre>
+            html element selector {
+                // declaration
+                property: value
+            }
+        </pre>
+
+    <pre>
+            css selector:
+                combinators:
+                    adjacent sibling selectors a + b; {imaging brother next to you, hand to hand}
+                    general sibling selectors a ~ b; {imaging your brothers stand in a line, but not so straight}
+                    child selector  a > b; {imaging you are standing between your parents, hand to hand}
+                    descendant selector a b; {imaging you are someone's descendant, there is no apparent connection}
+
+                pseudo classes : {child is distinctive; or class is more important than element, but when it comes to pseudo, it differs, pseudo class less important than pseudo element, that's why it has only one colon}
+                pseudo elements :: {twin brother, their relationship is close or they look alike}
+
+        </pre>
+
+
+    <hr>
+
+    <!-- confusing adjacent siblings  selector -->
+    <div id="pp">
+        <p>p1</p>
+        <p>p2</p>
+        <p>p3</p>
+    </div>
+    <!-- confusing adjacent siblings  selector -->
+
+
+    <hr>
+    <section>
+        <article>
+            <div>
+                <p>
+                    <span>123</span>
+                    <span>456</span>
+                </p>
+                <span>789</span>
+            </div>
+            <span>span1</span>
+            <span>span2</span>
+        </article>
+        <p>-------------</p>
+        <article>
+            <p>
+                <span>6</span>
+                <span>8</span>
+            </p>
+            <span>span3</span>
+            <span>span4</span>
+        </article>
+    </section>
+    <hr>
+
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>web fonts</title>
+        <link rel="stylesheet" href="../common.css">
+
+    </head>
+    <body>
+        <h1>web fonts</h1>
+        <p>web fonts, i like it!</p>
+
+        <h2>font families recap</h2>
+        <pre>
+            system
+            sans serif : helvetica,  trebuchet ms, verdana, sans-serif (arial is defualt?)
+        </pre>
+
+
+        <h2>web fonts</h2>
+        <pre>
+            there is an alternative, which works very well, right back to IE version 6
+
+            Web fonts are a CSS feature 
+            that allows you to specify font files to be downloaded along with your website as it is accessed
+            meaning that any browser that supports web fonts can have exactly the fonts you specify available to it
+
+            @font-face {
+                font-family: 'myFont';
+                src: url()  local or remote
+            }
+
+            html {
+                font-family: 'myFont', etc...
+            }
+
+
+            bear in mind:
+                Browsers support different font formats, 
+                so you'll need multiple font formats for decent cross-browser support
+                    For example, most modern browsers support WOFF/WOFF2 (Web Open Font Format versions 1 and 2), the most efficient format around
+                    but older versions of IE only support EOT (Embedded Open Type) fonts
+                    and you might need to include an SVG version of the font to support older versions of iPhone and Android browsers
+
+                Fonts generally aren't free to use
+                    You have to pay for them, 
+                    and/or follow other license conditions such as crediting the font creator in the code (or on your site)
+
+
+            Note: Web fonts as a technology have been supported in Internet Explorer since version 4!
+        </pre>
+
+
+        <h2>active learning: a web font example</h2]>
+
+        <h3>finding fonts</h3>
+        <pre>
+            three types of sites where you can obtain fonts:
+                A free font distributor
+                    Font Squirrel, dafont, and Everything Fonts.
+                A paid font distributor
+                    fonts.com or myfonts.com.
+                    You can also buy fonts directly from font foundries, for example Linotype, Monotype, or Exljbris.
+                An online font service
+                    This is a site that stores and serves the fonts for you, making the whole process easier.
+                        google fonts etc.
+
+            two fonts, one for the headings, and one for the body text.
+                headings
+                    maybe a nice display or slab serif font  slab n. 厚板，平板；混凝土路面；厚片
+                body text
+                    slightly less flashy and more readable font   flashy adj. 俗丽的，浮华的；穿着奢华的；闪光的；瞬间的；暴躁的；炫耀技艺的
+
+                It doesn't matter whether they are TTF (True Type Fonts) or OTF (Open Type Fonts)
+                some fonts are distributed as a family with different variants available
+                    for example thin, medium, bold, italic, thin italic
+        </pre>
+
+        <h3>generating the required code</h3>
+        <pre>
+            licensing
+            websont generator
+            upload fonts
+            legally eligible for web embedding
+            download your kit
+
+        </pre>
+
+        <h3>implementing the code in your demo</h3>
+        <pre>
+            Multiple versions of each font
+                for example .ttf, .woff, .woff2, etc
+                the exact fonts provided will be updated over time as browser support requirements change
+                As mentioned above, multiple fonts are needed for cross browser support
+                this is Fontsquirrel's way of making sure you've got everything you need.
+            A demo HTML file for each font
+                load these in your browser to see what the font will look like in different usage contexts.
+            A stylesheet.css file
+                which contains the generated @font-face code you'll need
+
+
+            implement these fonts in your demo
+                different fonts are created at different sizes, you may have to adjust the size, spacing, etc.
+        </pre>
+
+
+
+
+        <h2>using an online font service</h2>
+        <pre>
+            Online font services generally store and serve fonts for you
+                so you don't have to worry about writing the @font-face code
+                and generally just need to insert a simple line or two of code into your site to make everything work
+                    Adobe Fonts and Cloud.typography.
+                Most of these services are subscription-based
+                    with the notable exception of Google Fonts
+                        a useful free service, especially for rapid testing work and writing demos.
+                subscription-based 基于订阅的
+
+            link, remote 
+                iconfont.cn
+        </pre>
+
+
+        <h2>@font-face in more detail</h2>
+        <pre>
+            bulletproof @font-face syntax
+                after a post by Paul Irish from early on when @font-face started to get popular
+                bulletproof adj. 防弹的
+
+                font-family
+                    This line specifies the name you want to refer to the font as
+                    anything you like
+                    as long as you use it consistently throughout your CSS
+                src
+                    These lines specify 
+                        the paths to the font files to be imported into your CSS (the url part)
+                        the format of each font file (the format part)
+                            optional
+                            but it is useful to declare it because it allows browsers to find a font they can use faster
+                    Multiple declarations can be listed, separated by commas
+                        the browser will search through them and use the first one it can find that it understands
+                        it is therefore best to put newer, better formats like WOFF2 earlier on, and older, not so good formats like TTF later on. 
+
+                        The one exception to this is the EOT fonts 
+                            they are placed first to fix a couple of bugs in older versions of IE 
+                            whereby it will try to use the first thing it finds, 
+                            even if it can't actually use the font.
+                font-weight/font-style
+                    These lines specify     
+                        what weight the font has
+                        whether it is italic or not
+
+                        If you are importing multiple weights of the same font, you can specify what their weight/style is 
+                        and then use different values of font-weight/font-style to choose between them,
+                        rather than having to call all the different members of the font family different names.
+
+                        @font-face tip: define font-weight and font-style to keep your CSS simple by Roger Johansson shows what to do in more detail.
+
+                font-variant,
+                font-stretch,
+                unicode-range
+                    which is a specific range of characters you want to use out of the web font
+                    — in supporting browsers, only the specified characters will be downloaded, saving unnecessary downloading.
+        </pre>
+
+
+        <h2>variable fonts</h2>
+        <pre>
+            a newer font technology
+                these are fonts that 
+                    allow many different variations of a typeface to be incorporated into a single file
+                    rather than having a separate font file for every width, weight, or style
+
+            They are somewhat advanced for our beginner's course, 
+            but if you fancy stretching yourself and looking into them, 
+            read our Variable fonts guide.
+        </pre>
+
+
+        <h2>test your skills</h2>
+
+
+        <h2>summary</h2>
+
+    </body>
+</html>

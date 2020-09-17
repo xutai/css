@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>normal flow</title>
+        <link rel="stylesheet" href="../common.css">
+    </head>
+    <body>
+        <h1>normal flow</h1>
+        <h2>how are elements laid out by default?</h2>
+        <pre>
+            el box laid out: content - padding - border - margin (box model)
+
+            block level element vs inline elements
+                100% width of its parent element | as wide as their content
+                as tall as its content | as tall as their content
+                can set width and height | can't set width and height (they just sit inside <strong>the content</strong> of block level elements)
+                    inline elements - display: block or inline-block - behave like a block level element, mixed characteristics from both
+                
+            the normal layout flow:
+                is the system by which elements are placed inside the browser's viewport
+
+                block-level elements
+                    By default, block-level elements are laid out in the block flow direction, 
+                    based on the parent's writing mode (initial: horizontal-tb) — 
+                    each one will appear on a new line below the last one, 
+                    and they will be separated by any margin that is set on them.
+                    In English therefore, or any other horizontal, top to bottom writing mode, 
+                    block-level elements are laid out vertically.
+                inline elements
+                    Inline elements behave differently — they don't appear on new lines;
+                    instead, they sit on the same line as one another and any adjacent (or wrapped) text content, 
+                    as long as there is space for them to do so inside <strong>the width?</strong> of the parent block level element. 
+                    If there isn't space, then the overflowing text or elements will move down to a new line.
+            
+                margin collapsing
+                    If two adjacent elements both have the margin set on them and the two margins touch,
+                    the larger of the two remains, and the smaller one disappears 
+        </pre>
+
+        <h2>summary</h2>
+    </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>overflow</h1>
+        <pre>
+            what is css?
+
+            !important, must grasp the concept
+
+            Overflow is what happens when there is too much content to fit in a container.
+            就当一个容器里面，啊，无法内容太多的内容，这个容器装不下，然后这个会发生些什么？
+
+            Everything in CSS is a box. 
+            这里有个概念，就是所有的东西在CS中都是一个盒子，
+
+            You can constrain the size of these boxes by assigning values of width and height (or inline-size and block-size)
+            他说你可以限制这个盒子的尺寸，通过分配这个宽度和高度的值，宽度高度是物理的尺寸，在写作模式中，就是有这个叫做逻辑的属性，我们可以设置行内的尺寸和外框的尺寸，
+
+            Overflow happens when there is too much content to fit in a box.
+
+            CSS provides various tools to manage overflow. 
+            就是说Css.啊，它会提供了很多种，就是说工具就管理这个溢出，
+        </pre>
+        <pre>
+            css tries to avoid "data lost"
+
+            !not too important, but should know the concept
+
+            你看这个案例的话就是说，既安利他给了一个小小盒子，他就这么大，宽度是200，像素高度是100像素，但它的内容你看明显内容装不下了，这个这个盒子装不下这些内容，这些内容全部都溢出来了，
+            第2个案例看这个，给一个非常小的盒子，然后这里面就放一个单单词，这个盒子太小，根本就装不下这个单子，
+
+            这里这段话这个这这一段话主要是一些想法，什么是数据丢失，为什么浏览器，为什么CS不自己解决掉它让我们自己想办法，这里举了一个案例，比如说为什么不把不把这个译出的内容隐藏掉，为什么就是不改变那个容器的大小来包含这个内容呢？
+            他不管怎么样，如果如果长时间隐藏内容会造成数据的丢失，这里举了一个就是按钮看不见，这样最最坏的情况就是用户告诉你这里有问题，或者内容有重叠，
+            所以说如果你在设置宽度和高度的时候，cCSs尝试就认为你知道你在做什么尝试，你已经是可以设法解决这些溢出的问题，
+
+        </pre>
+        <pre>
+            the overflow property
+
+            !importnat
+
+            overflow: visible (default)
+            Overflow的默认值是visible，就是可见的意思，
+            overflow: hidden (crop content)
+            它一个黑点的话就是切掉嗯多余的内容，现在做游泳的时候，你什么都看不见，
+            overflow: scroll (scrollbars)
+            School的话就是添加一个滚动轴，不管是水平方向还是垂直方向，一般是在垂直方向吧，这个应该跟这个里面的内容的内容的写作模式应该相关吧，
+            overflow: auto (browser determine if it should display scrollbars)
+            Also的话是跟这个school bar有关系的，就是说浏览器决定是不是应该应用这个输入法，不过我觉得这个内容不是太长，根本不需要用搜狐吧，那个浏览器不就不用搜狗吧，
+            overflow-x, overflow-y (axes)
+            这个aexaxex是轴对称，X轴或者外轴，他那个每个就分别拿出来，
+            overflow: (x), (y) = overflow-x, overflow-y
+            左边是小摊端手的写法，右边是南汉的常熟的写法，
+
+            overflow-wrap(word-wrap): (inline elements, browser might insert line breaks whint an unbreakable string, to prevent overflow)
+            word-break: (to prevent overflow, work breaks might be inserted betwen any two characters, but not for chinese text)
+            word-break vs overflow-wrap, 
+            will create more than one break | will only create a break if an entire word cannot be placed on its own line without overflowing
+            overflow-x vs (word-break or overflow-wrap)
+            not for long words | for long words
+            就是说什么时候要over4x，什么时候要用would break或者是over for a rap，那取决于你这个里面有没有这个长很长的单词,
+        </pre>
+        <pre>
+            overflow establishes a block formatting context (bfc)
+
+            block formatting context
+            快格式化上下文，
+
+            !the content is not important too much, but i should know this concept
+
+            When you use a value of overflow such as scroll or auto, you create a Block Formatting Context (BFC).
+            首先就在你使用这个，溢出和这个自动这两个值的时候才会有这个快格式化上下文，
+
+            The content of the box that you have changed the value of overflow for, this becomes a layout of its own
+            当你给这个格子这个盒子添加了一个这个溢出的效果值，它这个内容就会变成一个带有它自身自己布局的内容，
+
+            Content outside the container cannot poke into the container, and nothing can poke out of that container into the surrounding layout. 
+            这个内内容就容器这外面的内容和容器里面的内容，他们不能互相的影响，或者拿出来或者怎么样把内容拿出来拿出来，它怎么样？它放进去，
+
+            This enables scrolling behavior, as all box content needs to be contained and not overlap, in order to create a consistent scrolling experience.
+            因为这样的一个相互影响，就可以激活了这个上下滚动这个滚动的行为，所以所以说这些内容就包含在里面，而不是重叠的，这样就会造成了，这样就会造成了一个连续性的卷轴的体验，
+        </pre>
+        <pre>
+            unwanted overflow in web design
+
+            !content is not important, just tell you history vs modern
+
+            morden layout methods, amount of content, norm, legacy, fixed height, align bottom of boxes, overflow, robust
+            这段话主要讲的是当代的一些布局的方法，他不会考虑太多，这个你这个浏览器中有多少的内容？与这个以前的这个规范的，或者在你的劳动浏览器中，他们会使用一些固定的内容，然后这些因为这些内容他使用的盒子，这些盒子之间是没有任何的关联的，这样就会很容易造成，就是说一些内容的溢出，所以说我们想尽量最好是自己能够，做一个就很健康的方式让这个内容展现出来，不管你是用这个screw还是用这个黑人，
+        </pre>
+    </body>
+</html>

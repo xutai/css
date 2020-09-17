@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .attachment {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+            background-image: url('bg.jpg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 0% 0%;
+            background-color: whitesmoke;
+            color: whitesmoke;
+            display: inline-block;
+            overflow: auto;
+        }
+
+        .attachment1 {
+            background-attachment: scroll;
+        }
+
+        .attachment2 {
+            background-attachment: fixed;
+        }
+
+        .attachment3 {
+            background-attachment: local;
+        }
+    </style>
+</head>
+
+<body>
+    <pre>
+            shorthand and longhand
+        
+            background:
+            when background-image + background-color exist, background-image will be in higher layer
+        
+            background-size:
+            cover vs contain
+                aspect ratio: yes vs yes
+                difference: 
+                    cover: bg image cover the box while extra area might remain outside of the box 
+                        (width and height) keep stretching until both (width and height) cover the box
+                    contain: the box contain the bg image
+                        it either fills left-right or top-bottom, then do nothing
+                        (width and height) keep stretching until either (width or height) cover the box
+        
+        
+                        
+            ---------------------------
+            background-image: image1, image2
+            layer: image1(higher layer) image2(lower layer)
+            
+            ---------------------------
+            multiple values:
+            
+            properties and positions, they repeat to match
+            
+            property1: value1-1, value1-2, value1-3, value1-4
+            property2: value2-1, value2-2
+            => value1-2,value1-3 with value2-1; value1-2,value1-3 with value2-2
+            property3: value3-1, value3-2, value3-3
+            => value1-1,value1-4 with value 3-1, value1-2 with value 3-2, value1-3 with value 3-3
+            
+            in this case,property1 should be background-image
+            
+            ---------------------------
+            background-attachment
+            
+            ---------------------------
+            
+        
+        
+        
+            
+        
+        </pre>
+    <h2>background-attachment</h2>
+    <section style="height: 1000px; background-color: whitesmoke;">
+        <p>scroll vs fixed vs local</p>
+        <div class="attachment attachment1">Causes the element's background to scroll when the page is scrolled. If the
+            element content is scrolled, the background does not move. In effect, the background is fixed to the same
+            position on the page, so it scrolls as the page scrolls.</div>
+        <div class="attachment attachment2">Causes an element's background to be fixed to the viewport, so that it
+            doesn't scroll when the page or element content is scrolled. It will always remain in the same position on
+            the screen.</div>
+        <div class="attachment attachment3">This value was added later on (it is only supported in Internet Explorer 9+,
+            whereas the others are supported in IE4+) because the scroll value is rather confusing and doesn't really do
+            what you want in many cases. The local value fixes the background to the element it is set on, so when you
+            scroll the element, the background scrolls with it.</div>
+        <hr>
+        <br>
+        <div style="height: 100px"></div>
+        <div class="attachment attachment1">Causes the element's background to scroll when the page is scrolled. If the
+            element content is scrolled, the background does not move. In effect, the background is fixed to the same
+            position on the page, so it scrolls as the page scrolls.</div>
+        <p>Causes the element's background to scroll when the page is scrolled. If the
+            element content is scrolled, the background does not move. In effect, the background is fixed to the same
+            position on the page, so it scrolls as the page scrolls.</p>
+        <p>使元素的背景在页面滚动时滚动。如果滚动了元素内容，则背景不会移动。实际上，背景被固定在页面的相同位置，所以它会随着页面的滚动而滚动。</p>
+        <div class="attachment attachment2">Causes an element's background to be fixed to the viewport, so that it
+            doesn't scroll when the page or element content is scrolled. It will always remain in the same position on
+            the screen.</div>
+        <p>Causes an element's background to be fixed to the viewport, so that it
+            doesn't scroll when the page or element content is scrolled. It will always remain in the same position on
+            the screen.</p>
+        <p>使元素的背景固定在视图端口上，这样当页面或元素内容滚动时，它就不会滚动。它将始终保持在屏幕上相同的位置。</p>
+        <div class="attachment attachment3">This value was added later on (it is only supported in Internet Explorer 9+,
+            whereas the others are supported in IE4+) because the scroll value is rather confusing and doesn't really do
+            what you want in many cases. The local value fixes the background to the element it is set on, so when you
+            scroll the element, the background scrolls with it.</div>
+        <p>This value was added later on (it is only supported in Internet Explorer 9+,
+            whereas the others are supported in IE4+) because the scroll value is rather confusing and doesn't really do
+            what you want in many cases. The local value fixes the background to the element it is set on, so when you
+            scroll the element, the background scrolls with it.</p>
+        <p>这个值是后来添加的(它只在Internet Explorer
+            9+中受支持，而其他的在IE4+中受支持)，因为滚动值相当混乱，在很多情况下并不能真正实现您想要的功能。局部值将背景固定在设置的元素上，因此当您滚动元素时，背景也随之滚动。</p>
+    </section>
+
+
+
+
+</body>
+
+</html>

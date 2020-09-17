@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>flexbox</title>
+    <link rel="stylesheet" href="../common.css">
+</head>
+
+<body>
+    <header>
+        <h1>flexbox</h1>
+    </header>
+    <main>
+        <aside></aside>
+        <article>
+            <p>one dimensional, layout method, for laying out items in rows or columns. <br>
+                items flex to fill additional space and shrink to fit into smaller space.</p>
+
+            <h2>why flexbox?</h2>
+            <section>
+                <p>floats, positioning vs flexbox</p>
+                <p>flexbox makes a lot of layout tasks much easier</p>
+            </section>
+            <section class="flexbox">
+                <article>
+                    vertically centering a block of content inside its parent
+                    <br>
+                    how to do ? | easy
+                </article>
+                <article>making all the children of a container take up equal amount of the available width/height,
+                    regardless
+                    of how much width/height is available
+                    <br>
+                    how to do? | easy
+                </article>
+                <article>making all columns in a multiple column layout adopt the same height even if they contain a
+                    different
+                    amount of content
+                    <br>
+                    how to do ? | easy
+                </article>
+            </section>
+
+            <h2>introducing a simple example</h2>
+
+
+            <h2>specifying what elements to layout as flexible boxes</h2>
+            <p>display: flex: all cols equal sized columns and same height <br>
+                display: inline-flex: inline items as flexible boxes
+            </p>
+
+            <h2>an aside n. 旁白 on the flex model</h2>
+            <pre>
+                main axis
+                    running in the direction the flex items are being laid out in
+                        rows across the page, or columns down the page.
+        
+                    main start, main end
+                cross axis 
+                    running perpendicular垂直 to the direction the flex items are being laid out in
+                    cross start, cross end
+                flex container
+                flex items
+        
+                terminology n. 术语 subsequent adj. 随后的
+            </pre>
+
+            <h2>columns or rows?</h2>
+            <pre>
+                flex-direction
+                    specifies what direction the main axis runs in
+                        what direction the flexbox children are laid out in
+                        default - row
+                    rows
+                    column
+                    row-reverse
+                    column-reverse
+            </pre>
+
+            <h2>wrapping</h2>
+            <pre class="question">
+                ???One issue that arises 
+                when you have a fixed amount of width or height in your layout is that 
+                eventually your flexbox children will overflow their container, breaking the layout. 
+            </pre>
+            <pre>
+                flex-wrap: wrap (flex container)
+                flex: 200; (flex items)
+                    each will be at least 200px wide
+                        You might also notice that the last few children on the last row are each made wider 
+                        so that the entire row is still filled.
+        
+                备注，在没有flex-wrap:wrap应用的时候，flex items的宽度好像没有达到200，但是flex items的高度好像达到了一定的长度
+        
+                flex-direction: row-reverse
+                    you still have your multiple row layout
+                    but it starts from the opposite corner of the browser window and flows in reverse
+        
+                row          |     row-reverse
+               1 ---------->        <---------- 1
+               2 ---------->        <---------- 2
+               3 ---------->        <---------- 3
+        
+            </pre>
+
+
+            <h2>flex-flow shorthand</h2>
+            <pre>
+                      flex-direction: row | flex-wrap: wrap   === 
+               flex-flow:      row               wrap;
+            </pre>
+
+            <h2>flexible sizing of flex items</h2>
+            <pre>
+                flex:1; (flex items)
+                    unitless proportion value   portion n. 部分；一份；
+                    dictates how much of the available space along the main axis
+                    each flex item will take up compared to other flex items
+        
+                    giving each article element the same value (a value of 1)
+                    which means they will all take up an equal amount of the spare space left 
+                    after things like padding and margin have been set
+        
+                    It is relative to other flex items, 
+                    meaning that giving each flex item a value of 400000 would have exactly the same effect.
+        
+                flex: 2
+                    takes up twice as much of the available width as the other two
+                    there are now four proportion units available in total (since 1 + 1 + 2 = 4)
+                    The first two flex items have one unit each so they take 1/4 of the available space each
+                    The third one has two units, so it takes up 2/4 of the available space (or one-half).
+        
+                flex: 1 200px;
+                flex: 2 200px;
+                    Each flex item will first be given 200px of the available space
+                    After that, the rest of the available space will be shared out according to the proportion units
+            </pre>
+
+            <h2>flex:shorthand versus longhand</h2>
+            <pre>
+                flex
+                    flex-grow
+                    flex-shrink
+                        when the flex items are overflowing their container
+                        This specifies how much of the overflowing amount is taken away from each flex item's size
+                        to stop them overflowing their container
+                    flex-basis
+                        The minimum size value
+        
+                advise against using the longhand flex properties unless you really have to
+                    (for example, to override something previously set)
+                    They lead to a lot of extra code being written, and they can be somewhat confusing.
+                so better us longhand!
+            </pre>
+
+            <h2>horizontal and vertical alignment</h2>
+            <pre>
+
+                align-items: (flex container) - cross axis
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items">https://developer.mozilla.org/en-US/docs/Web/CSS/align-items</a>
+                    stretch (default)
+                        stretches all flex items to fill the parent in the direction of the cross axis
+                            If the parent hasn't got a fixed width in the cross axis direction, then all flex items will become as long as the longest flex items.
+                                This is how our first example got equal height columns by default.
+                    center
+                        to maintain their intrinsic dimensions, but be centered along the cross axis. 
+                            This is why our current example's buttons are centered vertically.
+                    flex-start, flex-end
+                        which will align all items at the start and end of the cross axis respectively
+                    
+                align-self: (flex items)   - cross axis
+                    override the align-items behavior for individual flex items 
+        
+                    flex-start, flex-end etc
+
+
+
+                align-content:  
+                sets the distribution of space between and around content items along a flexbox's cross-axis or a grid's block axis.
+                https://developer.mozilla.org/en-US/docs/Web/CSS/align-content
+
+
+
+                justify-items:
+                defines the default justify-self for all items of the box, giving them all a default way of justifying each box along the appropriate axis.
+                https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items
+        
+                justify-content: (flex container) - main axis
+                    controls where the flex items sit on the main axis.
+        
+                    flex-start (default)
+                        makes all the items sit at the start of the main axis.
+                    flex-end
+                    center
+                        make the flex items sit in the center of the main axis.
+                    space-around
+                        it distributes all the items evenly along the main axis, 
+                        with a bit of space left at either end.
+                    space-between
+                        which is very similar to space-around except that 
+                        it doesn't leave any space at either end.
+            </pre>
+
+            <h2>ordering flex items</h2>
+            <pre>
+                Flexbox also has a feature for changing the layout order of flex items, 
+                without affecting the source order.
+                    This is another thing that is impossible to do with traditional layout methods.
+        
+                order: 1
+        
+                By default, all flex items have an order value of 0.
+                Flex items with higher order values set on them will appear later in the display order than items with lower order values.
+                Flex items with the same order value will appear in their source order. 
+                    So if you have four items with order values of 2, 1, 1, and 0 set on them respectively, their display order would be 4th, 2nd, 3rd, then 1st.
+                The 3rd item appears after the 2nd because it has the same order value and is after it in the source order.
+        
+                order: -1
+                    for this exmple, appear at the start of the main axis 
+            </pre>
+
+            <h2>nested flex boxes</h2>
+            <pre>
+                flex:  1 auto;
+                    try resizing your browser window width.
+        
+                    The buttons will take up as much space as they can 
+                    and sit as many on the same line as they can,
+        
+                    but when they can no longer fit comfortably on the same line, 
+                    they'll drop down to create new lines.
+            </pre>
+
+            <h2>cross brower compatibility</h2>
+            <pre>
+                Flexbox support is available in most new browsers
+                    Firefox, Chrome, Opera, Microsoft Edge and IE 11, newer versions of Android/iOS, etc
+        
+                However you should be aware that there are still older browsers in use that don't support Flexbox 
+                (or do, but support a really old, out-of-date version of it.)
+        
+                using flexbox in a real website you need to do testing and make sure that your user experience is still acceptable in as many browsers as possible.
+        
+                Flexbox is a bit trickier than some CSS features.
+                    For example, if a browser is missing a CSS drop shadow, then the site will likely still be usable.
+                    Not supporting flexbox features however will probably break a layout completely, making it unusable.
+            </pre>
+
+            <h2>test your skills</h2>
+
+            <h2>summary</h2>
+        </article>
+    </main>
+    <footer></footer>
+</body>
+
+</html>

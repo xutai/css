@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+    <style>
+        body {
+            color: green;
+        }
+
+        .my-class-1 a {
+            color: inherit;
+        }
+
+        .my-class-2 a {
+            color: initial;
+        }
+
+        .my-class-3 a {
+            color: unset;
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <h1><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS">what is css?</a></h1>
+
+
+    <pre>
+    cascade, specificity
+</pre>
+    <pre>
+    inheritance:
+        inherit: just as the name says, you inherit your parent's property
+        initial: 
+        unset
+        revert
+</pre>
+
+    <pre>
+    the amount of specificity measureed by this:
+    |{thousands} | {hundreds} |                    {tens}                  |            {ones}             |
+    |inline style|id selector |class selector;<strong>attribute selector</strong>;<strong>pseudo-class</strong>;|element selector;<strong>pseudo-element</strong>|
+    0 specificity: universal selector <strong>*</strong>, combinators <strong>+</strong>,<strong>&gt;</strong>,<strong>~</strong>,<strong>''</strong>, negation pseudo-class <strong>:not</strong> 
+</pre>
+    <pre>
+    examples:
+    h1 0 0 0 1
+    h1 + p::first-letter ;0 0 0 3; 0:[+;]; 1:[h1;p;::first-letter]
+    li > a[href*="en-US"] > .inline-warning ;0 0 2 2; 0:['>','*','>'], 1:['li','a'], 2:['[href="en-US"]','.inline-warning']; this <strong>*</strong> means match at least one of "en-US"
+    #identifier ;0 1 0 0; 3:['#identifier']
+</pre>
+
+
+    <ul>
+        <li>Default <a href="#">link</a> color</li>
+        <li class="my-class-1">Inherit the <a href="#">link</a> color</li>
+        <li class="my-class-2">Reset the <a href="#">link</a> color</li>
+        <li class="my-class-3">Unset the <a href="#">link</a> color</li>
+    </ul>
+
+
+
+
+
+</body>
+
+</html>

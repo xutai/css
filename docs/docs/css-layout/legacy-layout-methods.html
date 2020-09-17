@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>legacy layout methods</title>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>legacy layout methods</h1>
+            <nav>
+                <ul>
+                    <li><a
+                            href="#layout-and-grid-systems-before-css-grid-layout">layout-and-grid-systems-before-css-grid-layout</a>
+                    </li>
+                    <li><a href="#a-two-column-layout">a-two-column-layout</a></li>
+                    <li><a href="#creating-simple-legacy-grid-frameworks">creating-simple-legacy-grid-frameworks</a></li>
+                    <li>
+                        <ul>
+                            <li><a href="#a-simple-fixed-width-grid">a-simple-fixed-width-grid</a></li>
+                            <li><a href="#creating-a-fluid-grid">creating-a-fluid-grid</a></li>
+                            <li>
+                                <ul>
+                                    <li><a href="#updating-our-grid">updating-our-grid</a></li>
+                                </ul>
+                            </li>
+                            <li><a
+                                    href="#easier-calculations-using-the-calc()-function">easier-calculations-using-the-calc()-function</a>
+                            </li>
+                            <li><a
+                                    href="#semantic-versus-unsemantic-grid-systems">semantic-versus-unsemantic-grid-systems</a>
+                            </li>
+                            <li><a
+                                    href="#enabling-offset-containers-in-our-grid">enabling-offset-containers-in-our-grid</a>
+                            </li>
+                            <li><a href="#floated-grid-limitations">floated-grid-limitations</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#flex-grids">flex-grids</a></li>
+                    <li><a href="#third-party-grid-systems">third-party-grid-systems</a></li>
+                    <li><a href="#summary">summary</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <article>
+                <div class="content">
+                    <section id="layout-and-grid-systems-before-css-grid-layout">
+                        <h2>layout-and-grid-systems-before-css-grid-layout</h2>
+                        <p>fallback code for browsesrs</p>
+                        <p> looks like a grid not a grid</p>
+                    </section>
+                    <section id="a-two-column-layout">
+                        <h2>a-two-column-layout</h2>
+                        <p>% percentage, liquid layout</p>
+                    </section>
+                    <section id="creating-simple-legacy-grid-frameworks">
+                        <h2>creating-simple-legacy-grid-frameworks</h2>
+                        <section id="a-simple-fixed-width-grid">
+                            <h3>a-simple-fixed-width-grid</h3>
+                            <p>12 gutters 12*20=240</p>
+                            <p>960-240=720, 720/12=60 per column</p>
+                            <p>Each width is the result of adding up the column width of that number of columns plus the gutter widths, which will always number one less than the number of columns.</p>
+                            <p>don't forget .col margin-left:20px;</p>
+                        </section>
+                        <section id="creating-a-fluid-grid">
+                            <h3>crating-a-fluid-grid</h3>
+                            <p>equation n. 方程式</p>
+                            <p>percentages</p>
+                            <p>target / context = resuilt</p>
+                            <p>60/960=0.0625=0.625%</p>
+                            <p>20/960=0.0208333333, six 3</p>
+                            <section id="updating-our-grid">
+                                <h4>updating-our-grid</h4>
+                                <p>laborious adj. 勤劳的；艰苦的；费劲的</p>
+                            </section>
+                        </section>
+                        <section id="easier-calculations-using-the-calc()-function">
+                            <h3>easier-calculations-using-the-calc()-function</h3>
+                            <p>cal()</p>
+                            <p>calc() function, although it is fairly well supported across browsers —<strong> as far back as IE9</strong>.</p>
+                        </section>
+                        <section id="semantic-versus-unsemantic-grid-systems">
+                            <h3>semantic-versus-unsemantic-grid-systems</h3>
+                            <p>Adding classes to your markup to define layout means that your content and markup becomes tied to your visual presentation.</p>
+                            <p>this use of CSS classes described as being <strong>“unsemantic”</strong> — describing how the content looks — rather than a semantic use of classes that describes the content.</p>
+                        </section>
+                        <section id="enabling-offset-containers-in-our-grid">
+                            <h3>enabling-offset-containers-in-our-grid</h3>
+                            <p>.offset-by-one { margin-left: calc(6.25% + (2.08333333%*2)); }</p>
+                            <p>span 5 -&gt; span 6 offset-by-one</p>
+                            <p>ie8:  margin-left: 10.41666666%;</p>
+                            <p>ie8 above: margin-left: calc(6.25% + (2.08333333%*2));</p>
+                        </section>
+                        <section id="floated-grid-limitations">
+                            <h3>floated-grid-limitations</h3>
+                            <p>your total widths add up correctly, and that you don’t include elements in a row that span more columns than the row can contain. Due to the way floats work, if the number of grid columns becomes too wide for the grid, the elements on the end will <strong>drop down to the next line</strong>, breaking the grid.</p>
+                            <p>Also bear in mind that if the content of the elements gets wider than the rows they occupy, it will <strong>overflow</strong> and look a mess.</p>
+                            <p> It is very difficult with these older layout methods to control the height of elements without explicitly setting a height, and this is a very inflexible approach too —it only works if you can guarantee that your content will be a <strong>certain height</strong>.</p>
+                        </section>
+                    </section>
+                    <section id="flex-grids">
+                        <h2>flex-grids</h2>
+                        <p>flexbox in grids?</p>
+                        <p>flex: 1 1 auto; </p>
+                        <p>As our element has a width set, auto will use that width as the flex-basis value.</p>
+                        <p>They also don’t respect the grid used by the items above because they don’t know anything about it.</p>
+                        <p>Flexbox is one-dimensional by design.</p>
+                        <p>i think, here flexbox only handle row not column</p>
+                        <p>We can’t create a strict grid for columns and rows, meaning that if we are to use flexbox for our grid, we still need to <strong>calculate percentages</strong> as for the floated layout.</p>
+                    </section>
+                    <section id="third-party-grid-systems">
+                        <h2>third-party-grid-systems</h2>
+                        <p>bootstrap, foundation, skeleton</p>
+                        <p><strong>Normalize</strong> is a really useful little CSS library written by Nicolas Gallagher, which automatically does some useful basic layout fixes and makes default element styling more consistent across browsers.</p>
+                        <p>with CSS Grid Layout, many developers are moving away from these frameworks to use the inbuilt native grid that CSS provides.</p>
+                    </section>
+                </div>
+                <aside class="extra"></aside>
+            </article>
+            <aside class="sidebar"></aside>
+        </main>
+        <footer>
+            <p>&copy;2020</p>
+        </footer>
+    </div>
+</body>
+
+</html>

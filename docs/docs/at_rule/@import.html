@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+
+<body>
+
+
+    <nav>
+        <ul>
+            <li> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@import">
+                    https://developer.mozilla.org/en-US/docs/Web/CSS/@import</a></li>
+        </ul>
+    </nav>
+
+
+
+
+    <pre><code>
+            @import url;
+                @import 'custom.css';
+                @import url("chrome://communicator/skin/");
+            
+            @import url list-of-media-queries;
+                @import url("fineprint.css") print;
+                @import url("bluish.css") speech;
+                @import "common.css" screen;
+                @import url('landscape.css') screen and (orientation:landscape);
+
+            @import url supports( supports-query );
+            @import url supports( supports-query ) list-of-media-queries;
+        </code></pre>
+
+</body>
+
+</html>

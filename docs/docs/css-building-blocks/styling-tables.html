@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h2>a typical html table</h2>
+        <h2>styling our table</h2>
+        <pre>
+            spacing and layout
+
+            Normally, table columns tend to be sized according to how much content they contain, 
+            which produces some strange results.
+            
+            talbe-layout: fixed
+                size your columns according to the width of their headings, and then deal with their content as appropriate
+                thead th:nth-child(n)
+                it makes the table behave a bit more predictably by default.
+
+            width 100%, responsive for larger, but need some more work for narror screen width
+
+            border-collapse: collapse
+
+            border, padding
+
+            caption-side, 
+            text-align
+
+
+        </pre>
+        <pre>
+            some simple typography
+
+            google fonts, not for china!
+            alibaba fonts, etc
+
+            tweaking the font styling to make things easier to read:
+
+            By default, cells are given a text-align value of left, and headings are given a value of center,
+            but generally it looks better to have the alignments set the same for both.
+        </pre>
+
+        <pre>
+            graphics and colors
+
+            readable
+            It is useful to have multiple nested elements available so you can layer styles on top of one another.
+
+            for the benefit of older browsers that don't support multiple background images or linear gradients.
+            we decided to do it separately instead of
+            putting both the background image and the linear gradient on the elements using multiple background images
+        </pre>
+        <pre>
+            zebra striping
+
+            2n-1 odd, 2n even
+
+            :nth-child, backgorund-color  -  color we want to give 
+            semi-transparent .png  - texture
+            background-color  - fallback, browser support
+        </pre>
+        <pre>
+            styling the caption
+
+            caption-side: bottom
+        </pre>
+
+
+        <h2>table styling quick tips</h2>
+        <pre>
+            !!important
+            markup; simple, flexible(percentage = responsive)
+            !!important
+            table-layout:fixed (predictable talbe layout, easily set coloumn width by setting width on thier headings th)
+            !!important
+            border-collapse: collapse
+            thead, tbody, tfoot: logical chunks, extra places for css, easier to layer styles on top of one another
+            zebra striping: readable
+            text-align: line up th, td text, readable
+
+        </pre>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<p >
+    用canvas这样绘制图片为啥没有反应啊
+    奇怪的是我在页面上创建img标签，然后通过js加到canvas中，这样就可以
+</p>
+
+<canvas id="firstcanvas" width="350" height="350"></canvas>
+
+
+
+<script>
+    let firstcanvas ,con, img, container;
+        firstcanvas  = document.getElementById('firstcanvas');
+        con = firstcanvas.getContext('2d');
+        img = new Image();
+        img.src = "img/timg.jpg";
+        con.drawImage(img,-200,-350);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       // img = document.getElementById('imagesample');
+
+        //img.width = 700;
+       // img.height = 700;
+       // container = document.getElementById('container');
+        /*container.innerHTML = img;*/
+         // container.appendChild(img);
+      //  console.log(container);
+      //  console.log(container.innerHTML);
+        //console.log(container);
+
+
+
+</script>
+
+<!--<img id="imagesample" src="img/timg.jpg" alt="" width="700" height="700">-->
+
+<p style="display: none">
+    Adding Javascript objects into innerHTML
+    https://stackoverflow.com/questions/7018572/adding-javascript-objects-into-innerhtml
+</p>
+<div id="container" style="display: none"></div>
+
+</body>
+</html>

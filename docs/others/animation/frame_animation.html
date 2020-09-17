@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+
+        #header {
+            background-image: url(../../../images/animation/smoke1.png),
+            url(../../../images/animation/smoke2.png),
+            url(../../../images/animation/smoke3.png);
+            background-size: 650px 650px,650px 650px,cover;
+            animation: smoke 40s linear alternate 0s infinite;
+            background-repeat: repeat-x,repeat-x,no-repeat;
+            background-position: 0 0,0 -100px,center;
+        }
+
+        #header {
+            border: none;
+            height: 500px;
+            transition: .3s;
+            -webkit-transition: .3s;
+        }
+
+        #header {
+            position: relative;
+            z-index: 99;
+        }
+        
+        @keyframes smoke {
+            0% {
+                background-position: 0 0,0 -100px,left;
+            }
+            100% {
+                background-position: 2559px 50px,1280px -200px,left;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div id="header"></div>
+
+
+</body>
+</html>

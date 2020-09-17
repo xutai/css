@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>styling lists</title>
+    </head>
+    <body>
+        <h1>styling lists</h1>
+
+        <h2>a simple list example</h2>
+        <pre>
+            ol ordred list
+            ul unordered list
+                li list item
+            dl description list (not data list)
+                dt description term
+                dd description description ?
+
+            ul, ol    
+                top-margin: 16px(1em), 
+                bottom-margin: 16px(1em)
+                padding-left: 40px(2.5em)
+
+            li 
+                have no set defaults for spacing
+
+            dl 
+                top-margin: 16px(1em), 
+                bottom-margin: 16px(1em)
+                no padding set
+
+            dd 
+                margin-left: 40px(2.5em)
+            
+            p 
+                top-margin: 16px(1em), 
+                bottom-margin: 16px(1em)
+
+        </pre>
+
+
+        <h2>handling list spacing</h2>
+        <pre>
+            adjust their styles so they keep the same vertical spacing as their surrounding elements 
+            (such as paragraphs and images; sometimes called vertical rhythm),
+
+            consistency
+        </pre>
+
+
+        <h2>list-specific styles</h2>
+        <pre>
+            list-style-type
+                type of bullets to use for the list
+                    square - unordered list
+                    circle - unordered list
+                    number - ordered list 
+                    letter - ordered list
+                    roman numeral - ordered list 
+                    
+            list-style-position
+                bullets appear inside or outside the list items, before the start of each item
+
+            list-style-image
+                use a custom image for the bullet, rather than a simple square or circle.
+        </pre>
+
+        <h3>bullet styles</h3>
+        <pre>
+            list-style-type: upper-roman;
+                ppercase roman numerals
+        </pre>
+
+        <h3>bullet position</h3>
+        <pre>
+            list-style-position
+                inside
+                outside
+        </pre>
+
+        <h3>using a custom bullet</h3>
+        <pre>
+            list-style-image
+                url()
+
+            vs background
+
+            this property is a bit limited in terms of controlling the position, size, etc. | much better
+
+            ul, ul li  padding-left: 2rem(20px);
+            the list items are still lined up with the order list items and the description list descriptions
+            but the list items have some padding for the background images to sit inside
+            If we didn't do this, the background images would overlap with the list item text, 
+            which would look messy.
+
+            background-size 1.6rem(16px)
+            We ideally want the bullets to be the same size as the list items (or very slightly smaller or larger).
+            16px fits very nicely with the 20px padding
+            16px plus 4px of space between the bullet and the list item text 
+
+            background-repeat 
+            By default,  repeat, background images repeat until they fill up the available background space.
+            
+        </pre>
+
+        <h3>list-style shorthand</h3>
+        <pre>
+            list-style
+                list-style-type
+                    square
+                list-style-image
+                    url()
+                list-style-position
+                    inside
+
+            list-style: squre url() inside
+            the values can be listed in any order
+            , and you can use one, two or all three
+            (the default values used for the properties that are not included are disc, none, and outside).
+
+            If both a type and an image are specified, 
+            <strong>the type is used as a fallback</strong> if the image can't be loaded for some reason.
+                    
+        </pre>
+
+
+        <h2>controlling list counting</h2>
+        <pre>
+            count differently on an ordered list 
+
+            e.g. starting from a number other than 1, 
+            or counting backwards, 
+            or counting in steps of more than 1. 
+        </pre>
+
+        <h3>start</h3>
+        <pre>
+            The start attribute allows you to start the list counting from a number other than 1
+        </pre>
+
+        <h3>reversed</h3>
+        <pre>
+            If there are more list items in a reversed list than the value of the start attribute,
+            the count will continue to zero and then into negative values. 
+        </pre>
+
+        <h3>value</h3>
+        <pre>
+            Even if you are using a non-number list-style-type, 
+            you still need to use the equivalent numerical values in the value attribute.
+        </pre>
+
+
+
+
+    </body>
+</html>

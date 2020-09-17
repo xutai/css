@@ -1,0 +1,82 @@
+
+
+
+$color:#ff0097;
+$color1:#99b433;
+$color2: #FAE03C;
+$color4: #B4B7BA;
+$color_limelight: #F1EA7F;
+$bgnone: none;
+$bgblack: rgba(0,0,0,.2);
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+$color-meadowlark: #ECDB54;
+$color-arcadia : #00A591;
+
+
+@mixin transform($property){
+  -webkit-transition: $property;
+  -moz-transition: $property;
+  -ms-transition: $property;
+  -o-transition: $property;
+  transition: $property;
+}
+
+%fixedcenter {
+  position: fixed;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+%fixedtop {
+  left: 0;
+  top: 100px;
+  z-index: 2;
+  position: fixed;
+}
+%absoluteCenter {
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+%absolutePositioned {
+  position: absolute;
+  top:100%;
+  left: 0;
+}
+%absolutePositionedLB {
+  position: absolute;
+  top:100%;
+  right: 100%;
+}
+
+%divcreate {
+  width: 700px;
+  height: 200px;
+  background: gainsboro;
+}
+%divcreate100 {
+  width: 100%;
+  height: 50%;
+  background: gainsboro;
+}
+
+%scrollablediv {
+  width: 100%;
+  height: 200px;
+  overflow: auto;
+}
+
+%equal-heights {
+  display: flex;
+  flex-wrap: wrap;
+}
+%message-shared {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/*# sourceMappingURL=c.css.map */

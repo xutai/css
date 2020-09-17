@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="https://www.w3schools.com/howto/howto_css_fixed_menu.asp">How TO - Fixed Menu</a>
+<p>
+    position: fixed;
+    top
+    margin-top
+</p>
+
+
+<a href="https://www.w3schools.com/howto/howto_js_navbar_slide.asp">How TO - Slide Down a Bar on Scroll</a>
+<p>
+<pre><code>
+        transition: top 0.3s;
+
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("navbar").style.top = "0";
+    } else {
+    document.getElementById("navbar").style.top = "-50px";
+    }
+    }
+</code></pre>
+
+    <a href="https://www.w3schools.com/jsref/event_onscroll.asp">onscroll Event</a>
+    <a href="https://www.w3schools.com/jsref/prop_element_scrolltop.asp">HTML DOM scrollTop Property</a>
+
+</p>
+
+<a href="https://www.w3schools.com/howto/howto_js_navbar_sticky.asp">How TO - Sticky/Affix Navbar</a>
+<p>
+    <a href="https://www.w3schools.com/jsref/prop_element_offsettop.asp">Element offsetTop Property</a>
+    if body { margin: 10px;}
+    and the offsetParent is body
+    if relative position is 100px
+    then offsetTop is 110px
+</p>
+<a href="https://www.w3schools.com/jsref/prop_win_pagexoffset.asp">Window pageXOffset pageYOffset Properties</a>
+<p>
+    use js to add class or remove class,
+    and css selector
+    .sticky + .content
+
+
+    <pre><code>
+        window.onscroll = function() {myFunction()};
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+    if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+    } else {
+    navbar.classList.remove("sticky");
+    }
+    }
+</code></pre>
+
+</p>
+
+</body>
+</html>

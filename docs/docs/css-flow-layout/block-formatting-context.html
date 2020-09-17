@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>They Call it Home</title>
+    <meta name="author" content="xutai">
+    <meta name="description" content="The homepage aims to provide complete author's personal projects and knowledge">
+    <base href="" target="_blank">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <!-- <link rel="preload" href="/styles/normalize.css" as="style"> -->
+    <link rel="stylesheet" href="/styles/normalize.css">
+    <!-- <link rel="preload" href="/styles/common.css" as="style"> -->
+    <link rel="stylesheet" href="/styles/common.css">
+    
+    
+    <script src="/scripts/imageChanger.js" defer></script>
+    
+    
+    
+    <!--[if lte IE 8]>
+        <script src="js/browser_support/ie-fix.js"></script>
+        <link href="css/browser_support" rel="stylesheet" type="text/css">
+    <![endif]-->
+    
+    
+    
+
+    <!-- <link rel="preload" href="js/dom/change_style.js" as="script"> -->
+    <!-- <script src="js/dom/change_style.js" defer></script> -->
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="header">Design You Life</h1>
+
+            <form class="userinfo header" role="search">
+                <input type="text" id="loginInput" name="login">
+                <p>
+                    <span class="username"></span>
+                    <span><a href="" class="logout" style="display: none;">logout</a></span>
+                    <span><a href="/login" class="login">login</a></span>
+                    <span><a href="/register" class="register">register</a></span>
+                </p>
+
+            </form>
+
+
+            <nav class="header">
+                <ul>
+                    <li><a href="/">home</a></li>
+                    <li><a href="/pages/web-development/job/index.html">job</a></li>
+                    <li><a href="/pages/life/index.html">life</a></li>
+                    <li><a href="/pages/gaming/index.html">gaming</a></li>
+                </ul>
+            </nav>
+
+            <img src="/resources/images/cover_31.jpg" alt="cover_lanscape" class="image_cover header">
+        </header>
+        <main>
+            <article role="article">
+                <div class="content">
+
+                    <section>
+
+                        <ul>
+                            <li><a href="cascade-inheritance.html">cascade inheritance importance</a></li>
+                            <li><a href="rulesets.html">rulesets</a></li>
+                            <li><a href="note.html">note</a></li>
+                            <li><a href="summary.html">summary</a></li>
+                            <li><a
+                                    href="/docs/docs/guide/block-formatting-context.html">block-formatting-context</a>
+                            </li>
+                        </ul>
+
+                    </section>
+
+                    <section>
+                        <p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context">
+                                https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
+                            </a></p>
+                            <p><abbr title="Block Formatting Context">BFC</abbr></p>
+                    </section>
+                    <section>
+                        <p>A block formatting context is a part of a visual CSS rendering of a web page. </p>
+                        <p>It's the region in which the layout of block boxes occurs and in which floats interact with other elements.</p>
+                        <hr>
+                        <p>A block formatting context is created by at least one of the following:</p>
+                        <ul>
+                            <li>...</li>
+                            <li>...</li>
+                        </ul>
+                        <p>Formatting contexts affect layout, but typically, we create a new block formatting context for the positioning and clearing floats rather than changing the layout, because an element that establishes a new block formatting context will:</p>
+                        <ul>
+                            <li>contain internal floats.</li>
+                            <li>exclude external floats.</li>
+                            <li>suppress margin collapsing.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>examples</h2>
+                        <section>
+                            <h3>contain internal floats</h3>
+                            <p>Make float content and alongside content the same height.</p>
+                        </section>
+                        <section>
+                            <h3>exclude external floats</h3>
+                        </section>
+                        <section>
+                            <h3>margin collapsing</h3>
+                        </section>
+                    </section>
+                    <section>
+                        <h2></h2>
+                    </section>
+                    <section>
+                        <h3></h3>
+                    </section>
+                    <section>
+                        <h4></h4>
+                    </section>
+
+                </div>
+                <aside class="extra">
+                    <nav>
+                        <ul>
+                            <li><a href="/pages/mobile/index.html">mobile</a></li>
+                            <li><a href="/pages/experiment.html">experiment</a></li>
+                            <li><a href="/pages/video.html">video</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+            </article>
+            <aside class="sidebar" role="complementary">
+                <nav>
+                    <ul>
+                        <li><a href="/pages/web-development/http/index.html">http</a></li>
+                        <li><a href="/pages/web-development/nodejs/index.html">nodejs</a></li>
+                        <li><a href="/pages/web-development/html/index.html">html</a></li>
+                        <li><a href="/docs/index.html">css</a></li>
+                        <li><a href="/pages/web-development/web/index.html">web</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </main>
+        <footer>
+            <div class="count">
+                <p class="visit_count"></p>
+                <p class="click_count"></p>
+                <p class="visit_individual_count"></p>
+            </div>
+            <p>&copy;2020 xutai</p>
+            <p><a href="mailto:2518128561@qq.com">contact me</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

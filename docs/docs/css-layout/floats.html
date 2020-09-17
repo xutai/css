@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>floats</title>
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>floats</h1>
+        </header>
+        <main>
+            <aside>
+                <ul>
+                    <li><a href="#the-background-of-floats">the background of floats</a></li>
+                    <li><a href="#a-simple-float-example">a simple float example</a></li>
+                    <li><a href="#clearing-floats">clearing floats</a></li>
+                    <li>
+                        <p>clearing boxes wrapped around a float</p>
+                        <ul>
+                            <li><a href="#the-clearfix-hack">the clearfix hack</a></li>
+                            <li><a href="#using-overflow">using overflow</a></li>
+                            <li><a href="#display-flow-root">display: flow-root</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+            <article>
+                <section id="the-background-of-floats">
+                    <h2>the background of floats</h2>
+                    <p>before: an image floating inside a column of text,
+                        with the text wrapping around the left or right of it.
+                        <br> newspaper layout.</p>
+                    <p>after: float anything</p>
+                    <p>then: multiple columns of information floated so they sit alongside one another</p>
+                    <p>legacy technique</p>
+                </section>
+                <section id="a-simple-float-example">
+                    <h2>a simple float example</h2>
+                    <div class="meme"></div>
+                    <p>how the float works? <br>
+                        is taken out of the normal flow of the document and
+                        the element with the float set on it (the div element in this case)
+                        stuck to the left-hand side of its parent container (body, in this case) <br>
+                        Any content that comes below the floated element in the normal layout flow will now wrap around
+                        it,
+                        filling up the space to the <strong>right-hand side</strong> of it as far up as <strong>the
+                            top</strong> of the floated element.
+                        There, it will stop. <br>
+
+                        reverse: margin-right, top, left <br>
+                        <strong>
+                        we can add a margin to the float to push the text away <br>
+                        we can't add a margin to the text to move it away from the floating <br>
+                        a floated element is taken out of normal flow, and the boxes of
+                        the following items actually run behind the float</strong>
+                    </p>
+                </section>
+                <section id="clearing-floats">
+                    <h2>clearing floats</h2>
+                    <p>clearing floats: stop the following element from moving up <br>
+                        clear: left, right, both (the following element not the floated element)</p>
+                </section>
+                <section>
+                    <h2>clearing boxes wrapped around a float</h2>
+                    <p>fix this: a tall box and a short paragraph, we add a wrapper div to the float and the element with clearfix right following the float, but after the wrapper div the following paragraph is still affcted</p>
+                    <section>
+                        <h3>the clearfix hack</h3>
+                        <p>hack: a clever or elegant technical accomplishment or a temporary solution</p>
+                        <p>traditional, clearfix hack <br>
+                            inserting some generated content after the box which contains the float and wrapping content, and setting that to clear both
+                        </p>
+                    </section>
+                    <section id="using-overflow">
+                        <h3>using overflow</h3>
+                        <p>alternative: overflow property of the wrapper to value rather than visible <br>
+                        block formatting context(BFC): this wrapper <br>
+                        in certain cases you might find unwanted scrollbars or clipped shadows due to unintended consequences of using overflow
+                    </p>
+                    </section>
+                    <section id="display-flow-root">
+                        <h3>display:flow-root</h3>
+                        <p>modern: using <code>display: flow-root (wrapper)</code> <br>
+                        create a BFC without using hacks - there will be no unintended consequences <br>
+                    browser support: look at the table, ie doesn't support it!</p>
+                    </section>
+                </section>
+
+            </article>
+        </main>
+        <footer>
+            <p>@copyright xutai</p>
+            <p>last time edit: Thursday, June 18th, 2020</p>
+        </footer>
+    </div>
+</body>
+
+</html>
